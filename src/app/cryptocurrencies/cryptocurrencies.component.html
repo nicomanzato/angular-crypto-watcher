@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Symbol</td>
+    <td>Price</td>
+    <td>circulatingSupply</td>
+  </tr>
+  <tr *ngFor="let cryptocurrency of cryptocurrencies">
+    <td>
+      <a routerLink="/cryptocurrency/{{cryptocurrency.id}}">
+        {{cryptocurrency.name}}
+      </a>
+    </td>
+    <td>{{cryptocurrency.symbol}}</td>
+    <td>{{cryptocurrency.price}}</td>
+    <td>{{cryptocurrency.circulatingSupply}}</td>
+  </tr>
+</table>

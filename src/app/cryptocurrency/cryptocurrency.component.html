@@ -1,0 +1,10 @@
+<div *ngIf="cryptocurrency">
+  <ul>
+    <li>{{cryptocurrency.name}}</li>
+    <li>{{cryptocurrency.symbol}}</li>
+    <li>{{cryptocurrency.price}}</li>
+    <li>{{cryptocurrency.circulatingSupply}}</li>
+  </ul>
+</div>
+
+<button (click)="goBack()">go back</button>
