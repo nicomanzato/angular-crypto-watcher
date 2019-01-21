@@ -1,0 +1,12 @@
+.app-container {
+  background-color: #0066FF;
+  text-align: center;
+  align-items: center;
+}
+
+.router-container {
+  border-radius: 20px;
+  padding: 25px;
+  background-color: #FFFFFF;
+  display: inline-block;
+}

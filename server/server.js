@@ -43,4 +43,10 @@ app.get('/cryptocurrency/:symbol', function (req, res) {
   });
 });
 
+app.get('/global_data', function (req, res) {
+  coinmarketcap.getGlobalData(data => {
+    res.send(data);
+  });
+});
+
 app.listen(8080);

@@ -1,4 +1,4 @@
-<table>
+<table class="cryptocurrencies-table">
   <tr>
     <td>Name</td>
     <td>Market Cap</td>
@@ -10,7 +10,7 @@
   </tr>
   <tr *ngFor="let cryptocurrency of cryptocurrencies">
     <td>
-      <a routerLink="/cryptocurrency/{{cryptocurrency.symbol}}">
+      <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
         {{cryptocurrency.name}}
       </a>
     </td>

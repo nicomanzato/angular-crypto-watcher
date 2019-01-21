@@ -17,18 +17,18 @@ export class CryptocurrencyService {
   ) { }
 
   getCryptocurrencies(): Observable<Cryptocurrency[]> {
-    return this.http.get<Cryptocurrency[]>(this.cryptocurrencyUrl)
+    return this.http.get<any[]>(this.cryptocurrencyUrl)
       .pipe(
         map((data: any[]) => data.map(item => this.adapter.adapt(item))),
         catchError(this.handleError('getCryptocurrencies', []))
       );
   }
 
-  getCryptocurrency(id: string): Observable<Cryptocurrency> {
+  getCryptocurrency(id: string): Observable<any> {
     const url = `${this.cryptocurrencyUrl}/${id}`;
-    return this.http.get<Cryptocurrency>(url).pipe(
+    return this.http.get<any>(url).pipe(
       map((item: any) => this.adapter.adapt(item)),
-      catchError(this.handleError<Cryptocurrency>(`getCryptocurrency id=${id}`))
+      catchError(this.handleError(`getCryptocurrency id=${id}`))
     )
   }
 

@@ -1,10 +1,33 @@
-<div *ngIf="cryptocurrency">
-  <ul>
-    <li>{{cryptocurrency.name}}</li>
-    <li>{{cryptocurrency.symbol}}</li>
-    <li>{{cryptocurrency.price_usd}}</li>
-    <li>{{cryptocurrency.total_supply}}</li>
-  </ul>
+<div *ngIf="cryptocurrency" class="cryptocurrency-container">
+  <table>
+    <tr>
+      <td>Rank</td>
+      <td>{{cryptocurrency.rank}}</td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td>{{cryptocurrency.name}}</td>
+    </tr>
+    <tr>
+      <td>Symbol</td>
+      <td>{{cryptocurrency.symbol}}</td>
+    </tr>
+    <tr>
+      <td>Price in USD</td>
+      <td>{{cryptocurrency.price_usd}}</td>
+    </tr>
+    <tr>
+      <td>24h Volume</td>
+      <td>{{cryptocurrency.last_24h_volume_usd}}</td>
+    </tr>
+    <tr>
+      <td>Market Cap</td>
+      <td>{{cryptocurrency.market_cap_usd}}</td>
+    </tr>
+    <tr>
+      <td>Circulating Supply</td>
+      <td>{{cryptocurrency.available_supply}}</td>
+    </tr>
+  </table>
+  <button (click)="goBack()">go back</button>
 </div>
-
-<button (click)="goBack()">go back</button>

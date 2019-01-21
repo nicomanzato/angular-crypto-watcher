@@ -1,0 +1,6 @@
+.cryptocurrencies-table td {
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
