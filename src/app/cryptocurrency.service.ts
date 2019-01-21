@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Cryptocurrency } from './model/cryptocurrency';
+import { Cryptocurrency, CryptocurrencyAdapter } from './model/cryptocurrency';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -9,18 +9,25 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class CryptocurrencyService {
 
-  private cryptocurrencyUrl = 'api/cryptocurrency';
+  private cryptocurrencyUrl = 'http://10.160.11.56:8080/cryptocurrency';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private adapter: CryptocurrencyAdapter
+  ) { }
 
   getCryptocurrencies(): Observable<Cryptocurrency[]> {
     return this.http.get<Cryptocurrency[]>(this.cryptocurrencyUrl)
-      .pipe(catchError(this.handleError('getCryptocurrencies', [])));
+      .pipe(
+        map((data: any[]) => data.map(item => this.adapter.adapt(item))),
+        catchError(this.handleError('getCryptocurrencies', []))
+      );
   }
 
-  getCryptocurrency(id: number): Observable<Cryptocurrency> {
+  getCryptocurrency(id: string): Observable<Cryptocurrency> {
     const url = `${this.cryptocurrencyUrl}/${id}`;
     return this.http.get<Cryptocurrency>(url).pipe(
+      map((item: any) => this.adapter.adapt(item)),
       catchError(this.handleError<Cryptocurrency>(`getCryptocurrency id=${id}`))
     )
   }

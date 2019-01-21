@@ -24,7 +24,7 @@ export class CryptocurrencyComponent implements OnInit {
   }
 
   getCryptocurrency(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.cryptocurrencyService.getCryptocurrency(id)
       .subscribe(cryptocurrency => this.cryptocurrency = cryptocurrency);
   };

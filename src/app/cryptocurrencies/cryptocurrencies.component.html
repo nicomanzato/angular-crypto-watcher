@@ -1,18 +1,24 @@
 <table>
   <tr>
     <td>Name</td>
-    <td>Symbol</td>
+    <td>Market Cap</td>
     <td>Price</td>
-    <td>circulatingSupply</td>
+    <td>24h Volume</td>
+    <td>Circulating Supply</td>
+    <td>Change(24h)</td>
+    <td>Symbol</td>
   </tr>
   <tr *ngFor="let cryptocurrency of cryptocurrencies">
     <td>
-      <a routerLink="/cryptocurrency/{{cryptocurrency.id}}">
+      <a routerLink="/cryptocurrency/{{cryptocurrency.symbol}}">
         {{cryptocurrency.name}}
       </a>
     </td>
+    <td>${{cryptocurrency.market_cap_usd | number : fractionSize}}</td>
+    <td>${{cryptocurrency.price_usd | number : fractionSize}}</td>
+    <td>${{cryptocurrency.last_24h_volume_usd | number : fractionSize}}</td>
+    <td>{{cryptocurrency.available_supply | number : fractionSize}}</td>
+    <td>{{cryptocurrency.percent_change_24h | number : fractionSize}}%</td>
     <td>{{cryptocurrency.symbol}}</td>
-    <td>{{cryptocurrency.price}}</td>
-    <td>{{cryptocurrency.circulatingSupply}}</td>
   </tr>
 </table>
