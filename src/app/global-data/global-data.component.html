@@ -1,8 +1,8 @@
 <div *ngIf="data" class="global-data-container">
   <ul class="global-data-ul">
-    <li class="global-data-li"><span>Total Market Cap: {{data.total_market_cap_usd | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Total 24h Volume: {{data.total_24h_volume_usd | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Bitcoin Dominance: {{data.bitcoin_percentage_of_market_cap | number : fractionSize}}</span></li>
+    <li class="global-data-li"><span>Total Market Cap: ${{data.total_market_cap_usd | number : fractionSize}}</span></li>
+    <li class="global-data-li"><span>Total 24h Volume: ${{data.total_24h_volume_usd | number : fractionSize}}</span></li>
+    <li class="global-data-li"><span>Bitcoin Dominance: {{data.bitcoin_percentage_of_market_cap | number : fractionSize}}%</span></li>
     <li class="global-data-li"><span>Active Currencies: {{data.active_currencies | number : fractionSize}}</span></li>
     <li class="global-data-li"><span>Active Assets: {{data.active_assets | number : fractionSize}}</span></li>
     <li class="global-data-li"><span>Active Markets: {{data.active_markets | number : fractionSize}}</span></li>

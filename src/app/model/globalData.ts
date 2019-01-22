@@ -32,7 +32,6 @@ export class GlobalData {
 export class GlobalDataAdapter implements Adapter<GlobalData> {
 
   public adapt(globalDataFromServer): GlobalData {
-    console.log(globalDataFromServer);
     return new GlobalData(
       globalDataFromServer.total_market_cap_usd,
       globalDataFromServer.total_24h_volume_usd,

@@ -12,6 +12,7 @@ import { Cryptocurrency } from './../model/cryptocurrency'
 export class CryptocurrencyComponent implements OnInit {
 
   private cryptocurrency: Cryptocurrency;
+  private isLoadingCryptocurrency = true;
 
   constructor(
     private cryptocurrencyService: CryptocurrencyService,
@@ -26,7 +27,10 @@ export class CryptocurrencyComponent implements OnInit {
   getCryptocurrency(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.cryptocurrencyService.getCryptocurrency(id)
-      .subscribe(cryptocurrency => this.cryptocurrency = cryptocurrency);
+      .subscribe(cryptocurrency => {
+        this.cryptocurrency = cryptocurrency;
+        this.isLoadingCryptocurrency = false;
+      });
   };
 
   goBack(): void {

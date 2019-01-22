@@ -10,6 +10,7 @@ import { Cryptocurrency } from './../model/cryptocurrency'
 export class CryptocurrenciesComponent implements OnInit {
 
   cryptocurrencies: Cryptocurrency[];
+  isLoadingCryptocurrencies = true;
 
   constructor(
     private cryptocurrencyService: CryptocurrencyService
@@ -21,7 +22,10 @@ export class CryptocurrenciesComponent implements OnInit {
 
   getCryptocurrencies() {
     this.cryptocurrencyService.getCryptocurrencies()
-      .subscribe(cryptocurrencies => this.cryptocurrencies = cryptocurrencies);
+      .subscribe(cryptocurrencies => {
+        this.cryptocurrencies = cryptocurrencies;
+        this.isLoadingCryptocurrencies = false;
+      });
   }
 
 }

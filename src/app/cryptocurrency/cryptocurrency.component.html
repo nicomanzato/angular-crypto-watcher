@@ -1,33 +1,36 @@
-<div *ngIf="cryptocurrency" class="cryptocurrency-container">
-  <table>
+<div *ngIf="!isLoadingCryptocurrency" class="cryptocurrency-container">
+  <table class="cryptocurrency-table">
     <tr>
-      <td>Rank</td>
-      <td>{{cryptocurrency.rank}}</td>
+      <th>Rank</th>
+      <td>{{cryptocurrency.rank | number : fractionSize}}</td>
     </tr>
     <tr>
-      <td>Name</td>
+      <th>Name</th>
       <td>{{cryptocurrency.name}}</td>
     </tr>
     <tr>
-      <td>Symbol</td>
+      <th>Symbol</th>
       <td>{{cryptocurrency.symbol}}</td>
     </tr>
     <tr>
-      <td>Price in USD</td>
-      <td>{{cryptocurrency.price_usd}}</td>
+      <th>Price in USD</th>
+      <td>${{cryptocurrency.price_usd | number : fractionSize}}</td>
     </tr>
     <tr>
-      <td>24h Volume</td>
-      <td>{{cryptocurrency.last_24h_volume_usd}}</td>
+      <th>24h Volume</th>
+      <td>${{cryptocurrency.last_24h_volume_usd | number : fractionSize}}</td>
     </tr>
     <tr>
-      <td>Market Cap</td>
-      <td>{{cryptocurrency.market_cap_usd}}</td>
+      <th>Market Cap</th>
+      <td>${{cryptocurrency.market_cap_usd | number : fractionSize}}</td>
     </tr>
     <tr>
-      <td>Circulating Supply</td>
-      <td>{{cryptocurrency.available_supply}}</td>
+      <th>Circulating Supply</th>
+      <td>{{cryptocurrency.available_supply | number : fractionSize}}</td>
     </tr>
   </table>
-  <button (click)="goBack()">go back</button>
+  <button (click)="goBack()" class="button">Go back</button>
+</div>
+<div *ngIf="isLoadingCryptocurrency" class="cryptocurrency-container">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>
