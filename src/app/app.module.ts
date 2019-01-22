@@ -19,7 +19,7 @@ import { MatProgressSpinnerModule } from '@angular/material';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    [ MatProgressSpinnerModule ],
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

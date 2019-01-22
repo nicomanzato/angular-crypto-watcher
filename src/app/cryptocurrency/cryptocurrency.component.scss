@@ -1,0 +1,35 @@
+@import './../../base';
+
+.cryptocurrency-container {
+  display: inline-block;
+}
+
+.cryptocurrency-table td, th {
+  border-bottom: 1px solid $border-primary-color;
+  text-align: center;
+  padding: $spacing-M;
+}
+
+.cryptocurrency-table a:link, .cryptocurrency-table a:visited {
+  text-decoration: none;
+  display: inline-block;
+  color: $text-primary-color;
+}
+
+.cryptocurrency-table a:hover {
+  color: $text-secondary-color;
+  text-decoration-color: $text-secondary-color;
+  text-decoration: underline;
+}
+
+.button {
+  padding: $spacing-S;
+  margin: $spacing-XS;
+  border-radius: $spacing-XS;
+  background-color: $background-primary-color;
+  color: $text-tertiary-color;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
