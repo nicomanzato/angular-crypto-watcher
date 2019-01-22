@@ -1,13 +1,22 @@
 @import './../../base';
 
 .cryptocurrencies-container {
+  display: inline-block;
+}
 
+.cryptocurrencies-table {
+  width: 100%;
+}
+
+.cryptocurrencies-table-scroller {
+  overflow-x: scroll;
+  overflow-y: visible;
+  padding-bottom: $spacing-M;
+  width: 80vw;
 }
 
 .cryptocurrencies-table td, th {
   border-bottom: 1px solid $border-primary-color;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: $spacing-M;
 }

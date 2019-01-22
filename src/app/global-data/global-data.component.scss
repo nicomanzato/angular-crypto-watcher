@@ -1,17 +1,22 @@
 @import './../../base';
 
 .global-data-container {
+  display: flex;
+  justify-content: center;
   background-color: $background-secondary-color;
-  border-radius: $spacing-M;
-  margin: $spacing-M;
-  display: inline-block;
 }
 
 .global-data-ul {
   list-style-type: none;
-  margin: 0;
+  margin: auto;
   padding: 0;
   overflow: hidden;
+}
+@media (min-width: 768px) {
+  .global-data-ul {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .global-data-li {
@@ -22,5 +27,5 @@
   display: block;
   color: $text-primary-color;
   text-align: center;
-  padding: $spacing-M;
+  padding: $spacing-S;
 }

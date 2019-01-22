@@ -1,18 +1,16 @@
 @import './../../base';
 
 .cryptocurrency-container {
+  display: inline-block;
 }
 
 .cryptocurrency-table td, th {
   border-bottom: 1px solid $border-primary-color;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: $spacing-M;
 }
 
 .cryptocurrency-table a:link, .cryptocurrency-table a:visited {
-  text-align: center;
   text-decoration: none;
   display: inline-block;
   color: $text-primary-color;

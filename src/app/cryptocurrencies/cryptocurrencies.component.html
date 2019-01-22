@@ -1,30 +1,32 @@
-<div *ngIf="!isLoadingCryptocurrencies" class="cryptocurrencies-container">
-  <table class="cryptocurrencies-table">
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Market Cap</th>
-      <th>Price</th>
-      <th>24h Volume</th>
-      <th>Circulating Supply</th>
-      <th>Change(24h)</th>
-      <th>Symbol</th>
-    </tr>
-    <tr *ngFor="let cryptocurrency of cryptocurrencies">
-      <td>{{cryptocurrency.rank}}</td>
-      <td>
-        <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
-          {{cryptocurrency.name}}
-        </a>
-      </td>
-      <td>${{cryptocurrency.market_cap_usd | number : fractionSize}}</td>
-      <td>${{cryptocurrency.price_usd | number : fractionSize}}</td>
-      <td>${{cryptocurrency.last_24h_volume_usd | number : fractionSize}}</td>
-      <td>{{cryptocurrency.available_supply | number : fractionSize}}</td>
-      <td>{{cryptocurrency.percent_change_24h | number : fractionSize}}%</td>
-      <td>{{cryptocurrency.symbol}}</td>
-    </tr>
-  </table>
+<div *ngIf="!isLoadingCryptocurrencies" class="cryptocurrencies-container" style="overflow-x:auto;">
+  <div class="cryptocurrencies-table-scroller">
+    <table class="cryptocurrencies-table">
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Market Cap</th>
+        <th>Price</th>
+        <th>24h Volume</th>
+        <th>Circulating Supply</th>
+        <th>Change(24h)</th>
+        <th>Symbol</th>
+      </tr>
+      <tr *ngFor="let cryptocurrency of cryptocurrencies">
+        <td>{{cryptocurrency.rank | number : fractionSize}}</td>
+        <td>
+          <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
+            {{cryptocurrency.name}}
+          </a>
+        </td>
+        <td>${{cryptocurrency.market_cap_usd | number : fractionSize}}</td>
+        <td>${{cryptocurrency.price_usd | number : fractionSize}}</td>
+        <td>${{cryptocurrency.last_24h_volume_usd | number : fractionSize}}</td>
+        <td>{{cryptocurrency.available_supply | number : fractionSize}}</td>
+        <td>{{cryptocurrency.percent_change_24h | number : fractionSize}}%</td>
+        <td>{{cryptocurrency.symbol}}</td>
+      </tr>
+    </table>
+  </div>
 </div>
 <div *ngIf="isLoadingCryptocurrencies" class="cryptocurrencies-container">
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
