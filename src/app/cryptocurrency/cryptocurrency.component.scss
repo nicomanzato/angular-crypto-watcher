@@ -1,33 +1,35 @@
+@import './../../base';
+
 .cryptocurrency-container {
 }
 
 .cryptocurrency-table td, th {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $border-primary-color;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 15px;
+  padding: $spacing-M;
 }
 
 .cryptocurrency-table a:link, .cryptocurrency-table a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  color: black;
+  color: $text-primary-color;
 }
 
 .cryptocurrency-table a:hover {
-  color: #0066FF;
-  text-decoration-color: #0066FF;
+  color: $text-secondary-color;
+  text-decoration-color: $text-secondary-color;
   text-decoration: underline;
 }
 
 .button {
-  padding: 10px;
-  margin: 3px;
-  border-radius: 5px;
-  background-color: #0066FF;
-  color: white;
+  padding: $spacing-S;
+  margin: $spacing-XS;
+  border-radius: $spacing-XS;
+  background-color: $background-primary-color;
+  color: $text-tertiary-color;
   border: none;
   text-align: center;
   text-decoration: none;

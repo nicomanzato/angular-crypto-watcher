@@ -1,0 +1,13 @@
+@import './../base';
+
+.app-container {
+  text-align: center;
+  align-items: center;
+}
+
+.router-container {
+  border-radius: $spacing-M;
+  padding: $spacing-L;
+  background-color: $background-secondary-color;
+  display: inline-block;
+}
