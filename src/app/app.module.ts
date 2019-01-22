@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CryptocurrencyComponent } from './cryptocurrency/cryptocurrency.component';
 import { CryptocurrenciesComponent } from './cryptocurrencies/cryptocurrencies.component';
 import { GlobalDataComponent } from './global-data/global-data.component';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { GlobalDataComponent } from './global-data/global-data.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    [ MatProgressSpinnerModule ],
   ],
   providers: [],
   bootstrap: [AppComponent]

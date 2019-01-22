@@ -2,6 +2,7 @@
   background-color: #FFFFFF;
   border-radius: 20px;
   margin: 20px;
+  display: inline-block;
 }
 
 .global-data-ul {

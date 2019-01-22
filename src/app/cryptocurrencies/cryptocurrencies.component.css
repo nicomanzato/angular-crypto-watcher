@@ -1,6 +1,32 @@
-.cryptocurrencies-table td {
+.cryptocurrencies-container {
+
+}
+
+.cryptocurrencies-table td, th {
   border-bottom: 1px solid #ddd;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 15px;
+}
+
+.cryptocurrencies-table a:link, .cryptocurrencies-table a:visited {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: black;
+}
+
+.cryptocurrencies-table a:hover {
+  color: #0066FF;
+  text-decoration-color: #0066FF;
+  text-decoration: underline;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
 }
