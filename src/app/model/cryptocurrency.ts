@@ -33,6 +33,10 @@ export class Cryptocurrency {
     this.percent_change_24h = percent_change_24h;
     this.percent_change_7d = percent_change_7d;
   }
+
+  public getName():string {
+    return this.name;
+  }
 }
 
 

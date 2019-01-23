@@ -1,0 +1,5 @@
+<div class="search-form-container">
+  <form [formGroup]="searchForm">
+    <input type="text" formControlName="searchKeyword" (keyup)="onChangeSearchKeyword()" placeholder="Search">
+  </form>
+</div>

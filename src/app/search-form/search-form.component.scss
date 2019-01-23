@@ -1,0 +1,19 @@
+@import './../../base';
+
+.search-form-container {
+  padding: $spacing-M;
+  border-radius: $spacing-S;
+  background-color: $background-secondary-color;
+}
+
+.button {
+  padding: $spacing-XS;
+  margin: $spacing-XS;
+  border-radius: $spacing-XS;
+  background-color: $background-primary-color;
+  color: $text-tertiary-color;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}

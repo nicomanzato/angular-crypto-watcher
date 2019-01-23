@@ -4,6 +4,17 @@
   text-align: center;
 }
 
+.header-container {
+  padding: $spacing-M;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title-container {
+}
+
 .router-container {
   margin: $spacing-S;
   border-radius: $spacing-M;
