@@ -23,18 +23,16 @@ export class CryptocurrenciesComponent implements OnInit {
   ngOnInit() {
     this.getCryptocurrencies();
     this.searchKeyword = this.searchFormService.getSearchKeyword();
-    this.searchFormService.change.subscribe( ({searchKeyword}) => {
+    this.searchFormService.change.subscribe( (searchKeyword) => {
       this.searchKeyword = searchKeyword;
       this.cryptocurrenciesOnDisplay = this.getFilteredCryptocurrencies(this.searchKeyword);
     });
   }
 
   getFilteredCryptocurrencies(keyword = '') {
-    let searchKeyword = keyword.searchKeyword ? keyword.searchKeyword : keyword;
-
-    if (searchKeyword === '') return this.cryptocurrencies;
+    if (keyword === '') return this.cryptocurrencies;
     return this.cryptocurrencies.filter((cryptocurrency) => {
-      return cryptocurrency.getName().toUpperCase().includes(searchKeyword.toUpperCase());
+      return cryptocurrency.getName().toUpperCase().includes(keyword.toUpperCase());
     });
   }
 

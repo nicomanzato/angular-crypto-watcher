@@ -30,15 +30,19 @@ export class SearchFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  getSearchKeyword() {
+    return this.searchForm.value.searchKeyword;
+  }
+
   onSubmit() {
-    if (this.searchForm.value.searchKeyword && this.searchForm.value.searchKeyword !== '') {
-      this.searchFormService.setSearchKeyword(this.searchForm.value);
+    if (this.getSearchKeyword() !== '') {
+      this.searchFormService.setSearchKeyword(this.getSearchKeyword());
       this.router.navigateByUrl('/cryptocurrencies');
     }
   }
 
   onClear() {
-    if (this.searchForm.value.searchKeyword && this.searchForm.value.searchKeyword !== '') {
+    if (this.searchFormService.getSearchKeyword() !== '') {
       this.searchForm = this.fb.group({
         searchKeyword: new FormControl('', [
           Validators.maxLength(10),
