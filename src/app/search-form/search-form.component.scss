@@ -4,6 +4,8 @@
   padding: $spacing-M;
   border-radius: $spacing-S;
   background-color: $background-secondary-color;
+  display: flex;
+  align-items: center;
 }
 
 .button {

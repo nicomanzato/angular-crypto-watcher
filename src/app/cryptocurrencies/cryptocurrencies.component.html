@@ -1,5 +1,5 @@
 <div *ngIf="!isLoadingCryptocurrencies" class="cryptocurrencies-container" style="overflow-x:auto;">
-  <div class="cryptocurrencies-table-scroller">
+  <div class="cryptocurrencies-table-scroller" *ngIf="cryptocurrenciesOnDisplay.length > 0">
     <table class="cryptocurrencies-table">
       <tr>
         <th>Rank</th>
@@ -11,7 +11,7 @@
         <th>Change(24h)</th>
         <th>Symbol</th>
       </tr>
-      <tr *ngFor="let cryptocurrency of cryptocurrencies">
+      <tr *ngFor="let cryptocurrency of cryptocurrenciesOnDisplay">
         <td>{{cryptocurrency.rank | number : fractionSize}}</td>
         <td>
           <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
@@ -26,6 +26,9 @@
         <td>{{cryptocurrency.symbol}}</td>
       </tr>
     </table>
+  </div>
+  <div *ngIf="cryptocurrenciesOnDisplay.length === 0">
+    No results available
   </div>
 </div>
 <div *ngIf="isLoadingCryptocurrencies" class="cryptocurrencies-container">

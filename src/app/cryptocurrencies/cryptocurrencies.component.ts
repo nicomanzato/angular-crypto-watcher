@@ -11,6 +11,7 @@ import { Cryptocurrency } from './../model/cryptocurrency'
 export class CryptocurrenciesComponent implements OnInit {
 
   cryptocurrencies: Cryptocurrency[];
+  cryptocurrenciesOnDisplay: Cryptocurrency[];
   isLoadingCryptocurrencies = true;
   searchKeyword = '';
 
@@ -21,23 +22,29 @@ export class CryptocurrenciesComponent implements OnInit {
 
   ngOnInit() {
     this.getCryptocurrencies();
-    this.searchFormService.change.subscribe(event => {
-      this.searchKeyword = event.searchKeyword;
-      this.getCryptocurrencies();
+    this.searchKeyword = this.searchFormService.getSearchKeyword();
+    this.searchFormService.change.subscribe( ({searchKeyword}) => {
+      this.searchKeyword = searchKeyword;
+      this.cryptocurrenciesOnDisplay = this.getFilteredCryptocurrencies(this.searchKeyword);
+    });
+  }
+
+  getFilteredCryptocurrencies(keyword = '') {
+    let searchKeyword = keyword.searchKeyword ? keyword.searchKeyword : keyword;
+
+    if (searchKeyword === '') return this.cryptocurrencies;
+    return this.cryptocurrencies.filter((cryptocurrency) => {
+      return cryptocurrency.getName().toUpperCase().includes(searchKeyword.toUpperCase());
     });
   }
 
   getCryptocurrencies() {
+    this.isLoadingCryptocurrencies = true;
     this.cryptocurrencyService.getCryptocurrencies()
       .subscribe(cryptocurrencies => {
+        this.cryptocurrencies = cryptocurrencies;
+        this.cryptocurrenciesOnDisplay = this.getFilteredCryptocurrencies(this.searchKeyword);
         this.isLoadingCryptocurrencies = false;
-        if (this.searchKeyword !== '') {
-          this.cryptocurrencies = cryptocurrencies.filter((cryptocurrency) => {
-            return cryptocurrency.getName().toUpperCase().includes(this.searchKeyword.toUpperCase());
-          });
-        } else {
-          this.cryptocurrencies = cryptocurrencies;
-        }
       });
   }
 
