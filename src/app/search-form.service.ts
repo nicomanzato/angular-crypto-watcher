@@ -13,6 +13,10 @@ export class SearchFormService {
 
   setSearchKeyword(term: string) {
     this.searchKeyword = term;
-    this.change.emit(this.searchKeyword);
+    this.change.emit(term);
+  }
+
+  getSearchKeyword(): string {
+    return this.searchKeyword;
   }
 }
