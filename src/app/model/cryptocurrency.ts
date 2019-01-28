@@ -39,7 +39,6 @@ export class Cryptocurrency {
   }
 }
 
-
 @Injectable({
     providedIn: 'root'
 })

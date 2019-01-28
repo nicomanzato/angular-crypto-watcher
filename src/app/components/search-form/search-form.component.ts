@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { SearchFormService } from './../search-form.service';
-import { Cryptocurrency } from './../model/cryptocurrency';
+import { SearchFormService } from './../../search-form.service';
+import { Cryptocurrency } from './../../model/cryptocurrency';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { ChangeSearchKeyword } from './../../store/cryptocurrency/cryptocurrency.actions';
 
 @Component({
   selector: 'app-search-form',
@@ -23,8 +25,8 @@ export class SearchFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private searchFormService: SearchFormService,
     private router: Router,
+    private store: Store<{ cryptocurrency }>,
   ) { }
 
   ngOnInit() {
@@ -35,22 +37,19 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.getSearchKeyword() !== '') {
-      this.searchFormService.setSearchKeyword(this.getSearchKeyword());
-      this.router.navigateByUrl('/cryptocurrencies');
-    }
+    this.store.dispatch(new ChangeSearchKeyword({data: this.getSearchKeyword()}));
+    this.router.navigateByUrl('/cryptocurrencies');
   }
 
-  onClear() {
-    if (this.searchFormService.getSearchKeyword() !== '') {
-      this.searchForm = this.fb.group({
-        searchKeyword: new FormControl('', [
-          Validators.maxLength(10),
-        ]),
-      });
-      this.searchFormService.setSearchKeyword('');
-      this.router.navigateByUrl('/cryptocurrencies');
-    }
+  onClear() { 
+    this.searchForm = this.fb.group({
+      searchKeyword: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(10),
+      ]),
+    });
+    this.store.dispatch(new ChangeSearchKeyword({data: ''}));
+    this.router.navigateByUrl('/cryptocurrencies');
   }
 
 }
