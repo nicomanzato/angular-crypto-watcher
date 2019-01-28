@@ -25,7 +25,7 @@ export class CryptocurrenciesComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(new RequestCryptocurrencyListLoad());
 
-    this.cryptocurrencies$ = this.store.pipe(select(fromRoot.selectCryptocurrencyList))
+    this.cryptocurrencies$ = this.store.select(fromRoot.selectCryptocurrencyList);
     this.isLoadingCryptocurrencyList$ = this.store.select(state => state.cryptocurrency.isLoadingCryptocurrencyList);
   }
 
