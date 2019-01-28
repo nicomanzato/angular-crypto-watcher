@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ActionTypes, SuccessCryptocurrencyListLoad, SuccessSingleCryptocurrencyLoad} from './cryptocurrency.actions';
-import { EMPTY } from 'rxjs';
-import { map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { EMPTY, of, Observable } from 'rxjs';
+import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
 import { CryptocurrencyService } from './../../cryptocurrency.service';
 import { State as CryptocurrencyState } from './cryptocurrency.reducer';
 import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector';
@@ -18,6 +18,7 @@ export class CryptocurrencyEffects {
       mergeMap(() => this.cryptocurrencyService.getCryptocurrencies()
         .pipe(
           map(cryptocurrencies => new SuccessCryptocurrencyListLoad({data: cryptocurrencies})),
+          catchError(this.handleError('getCryptocurrencies', [])),
         ))
       );
 
@@ -29,8 +30,16 @@ export class CryptocurrencyEffects {
       mergeMap(([action, state]) => this.cryptocurrencyService.getCryptocurrency(selectSingleCryptocurrencySymbol(state))
         .pipe(
           map(cryptocurrency => new SuccessSingleCryptocurrencyLoad({data: cryptocurrency})),
+          catchError(this.handleError('getCryptocurrency', [])),
         ))
       );
+
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
+  }
 
   constructor(
     private actions$: Actions,

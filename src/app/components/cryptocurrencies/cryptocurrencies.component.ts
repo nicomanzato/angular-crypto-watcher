@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CryptocurrencyService } from './../../cryptocurrency.service';
-import { SearchFormService } from './../../search-form.service';
 import { Cryptocurrency } from './../../model/cryptocurrency'
 import { Observable } from 'rxjs';
 import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
@@ -19,7 +18,6 @@ export class CryptocurrenciesComponent implements OnInit {
   isLoadingCryptocurrencyList$: Observable<boolean>;
 
   constructor(
-    private searchFormService: SearchFormService,
     private store: Store<{ cryptocurrency :CryptocurrencyState }>,
   ) {
   }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { SearchFormService } from './../../search-form.service';
 import { Cryptocurrency } from './../../model/cryptocurrency';
 import { Observable, Subject } from 'rxjs';
 import { Router } from '@angular/router';
@@ -41,7 +40,7 @@ export class SearchFormComponent implements OnInit {
     this.router.navigateByUrl('/cryptocurrencies');
   }
 
-  onClear() { 
+  onClear() {
     this.searchForm = this.fb.group({
       searchKeyword: new FormControl('', [
         Validators.required,

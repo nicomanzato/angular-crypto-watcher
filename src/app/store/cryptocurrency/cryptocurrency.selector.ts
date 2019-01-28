@@ -16,4 +16,4 @@ export const selectCryptocurrencyList = createSelector(
   }
 );
 
-export const selectSingleCryptocurrencySymbol = (state) => state.cryptocurrency.singleCryptocurrencySymbol;
+export const selectSingleCryptocurrencySymbol = (state: AppState) => state.cryptocurrency.singleCryptocurrencySymbol;
