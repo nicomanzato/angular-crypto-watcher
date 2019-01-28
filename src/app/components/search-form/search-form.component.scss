@@ -1,4 +1,4 @@
-@import './../../base';
+@import './../../../base';
 
 .search-form-container {
   padding: $spacing-M;
@@ -18,4 +18,9 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.input {
+  border-color: $border-terciary-color;
+  border-width: 1px;
 }

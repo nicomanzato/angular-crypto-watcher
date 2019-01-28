@@ -1,6 +1,6 @@
 <div class="search-form-container">
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-    <input type="text" formControlName="searchKeyword" placeholder="Search">
+    <input type="text" class="input" formControlName="searchKeyword" placeholder="Search">
     <button type="submit" [disabled]="!searchForm.valid" class="button"> Submit </button>
   </form>
   <button class="button" (click)="onClear()"> Clear Search </button>

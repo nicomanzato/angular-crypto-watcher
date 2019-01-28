@@ -24,7 +24,7 @@ export class CryptocurrencyService {
       );
   }
 
-  getCryptocurrency(id: string): Observable<any> {
+  getCryptocurrency(id: string = 'BTC'): Observable<any> {
     const url = `${this.cryptocurrencyUrl}/${id}`;
     return this.http.get<any>(url).pipe(
       map((item: any) => this.adapter.adapt(item)),
