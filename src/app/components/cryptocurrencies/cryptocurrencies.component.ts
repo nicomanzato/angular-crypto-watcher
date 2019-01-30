@@ -4,7 +4,7 @@ import { Cryptocurrency } from './../../model/cryptocurrency'
 import { Observable } from 'rxjs';
 import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
 import { Store, select } from '@ngrx/store';
-import { State as CryptocurrencyState } from './../../store/cryptocurrency/cryptocurrency.reducer';
+import { CryptocurrencyState } from './../../store/cryptocurrency/cryptocurrency.reducer';
 import * as fromRoot from './../../store/cryptocurrency/cryptocurrency.selector';
 
 @Component({
@@ -19,8 +19,7 @@ export class CryptocurrenciesComponent implements OnInit {
 
   constructor(
     private store: Store<{ cryptocurrency :CryptocurrencyState }>,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.store.dispatch(new RequestCryptocurrencyListLoad());

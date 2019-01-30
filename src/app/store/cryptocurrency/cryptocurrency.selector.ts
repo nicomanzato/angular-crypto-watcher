@@ -1,11 +1,9 @@
 import { createSelector } from '@ngrx/store';
-import { State as CryptocurrencyState } from './cryptocurrency.reducer';
-
-export interface AppState {
-  cryptocurrency: CryptocurrencyState;
-}
+import { CryptocurrencyState } from './cryptocurrency.reducer';
+import { AppState } from './../app.state';
 
 export const selectCryptocurrency = (state: AppState) => state.cryptocurrency;
+export const selectSingleCryptocurrencySymbol = (state: CryptocurrencyState) => state.singleCryptocurrencySymbol;
 
 export const selectCryptocurrencyList = createSelector(
   selectCryptocurrency,
@@ -15,5 +13,3 @@ export const selectCryptocurrencyList = createSelector(
     });
   }
 );
-
-export const selectSingleCryptocurrencySymbol = (state: AppState) => state.cryptocurrency.singleCryptocurrencySymbol;

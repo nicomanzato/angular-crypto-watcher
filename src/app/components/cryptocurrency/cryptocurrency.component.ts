@@ -25,7 +25,7 @@ export class CryptocurrencyComponent implements OnInit {
   ngOnInit() {
     let cryptocurrencySymbol = this.route.snapshot.paramMap.get('id');
 
-    this.store.dispatch(new RequestSingleCryptocurrencyLoad({data: cryptocurrencySymbol}));
+    this.store.dispatch(new RequestSingleCryptocurrencyLoad(cryptocurrencySymbol));
     this.cryptocurrency$ = this.store.select(state => state.cryptocurrency.singleCryptocurrency);
     this.isLoadingSingleCryptocurrency$ = this.store.select(state => state.cryptocurrency.isLoadingSingleCryptocurrency);
   }

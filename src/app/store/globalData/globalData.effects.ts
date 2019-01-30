@@ -11,7 +11,7 @@ export class GlobalDataEffects {
   @Effect()
   loadGlobalData$ = this.actions$
     .pipe(
-      ofType(ActionTypes.requestGlobalDataLoad),
+      ofType(ActionTypes.REQUEST_GLOBAL_DATA_LOAD),
       mergeMap(() => this.globalDataService.getGlobalData()
         .pipe(
           map(globalData => new SuccessGlobalDataLoad({data: globalData})),

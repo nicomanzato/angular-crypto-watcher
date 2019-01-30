@@ -36,7 +36,7 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.store.dispatch(new ChangeSearchKeyword({data: this.getSearchKeyword()}));
+    this.store.dispatch(new ChangeSearchKeyword(this.getSearchKeyword()));
     this.router.navigateByUrl('/cryptocurrencies');
   }
 
@@ -47,7 +47,7 @@ export class SearchFormComponent implements OnInit {
         Validators.maxLength(10),
       ]),
     });
-    this.store.dispatch(new ChangeSearchKeyword({data: ''}));
+    this.store.dispatch(new ChangeSearchKeyword(''));
     this.router.navigateByUrl('/cryptocurrencies');
   }
 

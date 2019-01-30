@@ -4,7 +4,7 @@ import { ActionTypes, SuccessCryptocurrencyListLoad, SuccessSingleCryptocurrency
 import { EMPTY, of, Observable } from 'rxjs';
 import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
 import { CryptocurrencyService } from './../../cryptocurrency.service';
-import { State as CryptocurrencyState } from './cryptocurrency.reducer';
+import { CryptocurrencyState } from './cryptocurrency.reducer';
 import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector';
 import { Store } from '@ngrx/store';
 
@@ -14,10 +14,10 @@ export class CryptocurrencyEffects {
   @Effect()
   loadCryptocurrencyList$ = this.actions$
     .pipe(
-      ofType(ActionTypes.requestCryptocurrencyListLoad),
+      ofType(ActionTypes.REQUEST_CRYPTOCURRENCY_LIST_LOAD),
       mergeMap(() => this.cryptocurrencyService.getCryptocurrencies()
         .pipe(
-          map(cryptocurrencies => new SuccessCryptocurrencyListLoad({data: cryptocurrencies})),
+          map(cryptocurrencies => new SuccessCryptocurrencyListLoad(cryptocurrencies)),
           catchError(this.handleError('getCryptocurrencies', [])),
         ))
       );
@@ -25,11 +25,11 @@ export class CryptocurrencyEffects {
   @Effect()
   loadSingleCryptocurrency$ = this.actions$
     .pipe(
-      ofType(ActionTypes.requestSingleCryptocurrencyLoad),
+      ofType(ActionTypes.REQUEST_SINGLE_CRYPTOCURRENCY_LOAD),
       withLatestFrom(this.store$),
       mergeMap(([action, state]) => this.cryptocurrencyService.getCryptocurrency(selectSingleCryptocurrencySymbol(state))
         .pipe(
-          map(cryptocurrency => new SuccessSingleCryptocurrencyLoad({data: cryptocurrency})),
+          map(cryptocurrency => new SuccessSingleCryptocurrencyLoad(cryptocurrency)),
           catchError(this.handleError('getCryptocurrency', [])),
         ))
       );
@@ -44,6 +44,6 @@ export class CryptocurrencyEffects {
   constructor(
     private actions$: Actions,
     private cryptocurrencyService: CryptocurrencyService,
-    private store$: Store<{ cryptocurrency: CryptocurrencyState }>,
+    private store$: Store<CryptocurrencyState>,
   ) {}
 }
