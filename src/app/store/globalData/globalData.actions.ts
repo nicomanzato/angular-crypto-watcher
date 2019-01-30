@@ -14,7 +14,7 @@ export class RequestGlobalDataLoad implements Action {
 export class SuccessGlobalDataLoad implements Action {
   readonly type = ActionTypes.SUCCESS_GLOBAL_DATA_LOAD;
 
-  constructor(public payload: { data: GlobalData }) {}
+  constructor(public payload: GlobalData) {}
 }
 
 export class FailureGlobalDataLoad implements Action {

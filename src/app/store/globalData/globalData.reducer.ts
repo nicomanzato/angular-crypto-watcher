@@ -13,10 +13,7 @@ export const initialState: GlobalDataState = {
   isLoadingGlobalData: false,
 }
 
-export function globalDataReducer(
-  state = initialState,
-  action: GlobalDataActions.ActionsUnion
-): GlobalDataState {
+export function globalDataReducer(state = initialState, action: GlobalDataActions.ActionsUnion): GlobalDataState {
   switch (action.type) {
     case GlobalDataActions.ActionTypes.REQUEST_GLOBAL_DATA_LOAD: {
       return {
@@ -29,7 +26,7 @@ export function globalDataReducer(
       return {
         ...state,
         isLoadingGlobalData: false,
-        globalData: action.payload.data,
+        globalData: action.payload,
       };
     }
 
