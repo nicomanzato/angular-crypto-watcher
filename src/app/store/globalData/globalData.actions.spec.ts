@@ -6,6 +6,8 @@ import {
 } from './globalData.actions';
 import { GlobalData } from './../../model/globalData';
 
+import { globalDataMockUp } from './../../testing/globalData.mockup';
+
 describe('GlobalData Actions', () => {
 
   it('should generate REQUEST_GLOBAL_DATA_LOAD', () => {
@@ -15,7 +17,7 @@ describe('GlobalData Actions', () => {
   });
 
   it('should generate SUCCESS_GLOBAL_DATA_LOAD', () => {
-    const payload = new GlobalData(0, 0, 0, 0, 0, 0);
+    const payload = globalDataMockUp;
     const result = new SuccessGlobalDataLoad(payload);
 
     expect({ ...result }).toEqual({ type: ActionTypes.SUCCESS_GLOBAL_DATA_LOAD, payload });

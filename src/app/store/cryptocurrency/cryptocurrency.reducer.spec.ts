@@ -10,18 +10,9 @@ import {
   ChangeSearchKeyword,
 } from './cryptocurrency.actions';
 import { Cryptocurrency } from './../../model/cryptocurrency';
+import { cryptocurrencyListMockUp, cryptocurrencyMockUp } from './../../testing/cryptocurrency.mockup';
 
 describe('CryptocurrencyReducer:', () => {
-  /*
-  describe('undefined action', () => {
-    it('should return the default state', () => {
-      const action = {};
-      const state = cryptocurrencyReducer(undefined, action);
-
-      expect(state).toBe(initialState);
-    });
-  });
-  */
   describe('REQUEST_CRYPTOCURRENCY_LIST_LOAD action', () => {
     it('should set isLoadingCryptocurrencyList to true', () => {
       const action = new RequestCryptocurrencyListLoad();
@@ -33,11 +24,7 @@ describe('CryptocurrencyReducer:', () => {
 
   describe('SUCCESS_CRYPTOCURRENCY_LIST_LOAD action', () => {
     it('should load new cryptocurrencies in cryptocurrencyList', () => {
-      const payload: Cryptocurrency[] = [
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-      ];
+      const payload: Cryptocurrency[] = cryptocurrencyListMockUp;
       const action = new SuccessCryptocurrencyListLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 
@@ -45,11 +32,7 @@ describe('CryptocurrencyReducer:', () => {
     });
 
     it('should set isLoadingCryptocurrencyList to false', () => {
-      const payload: Cryptocurrency[] = [
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-        new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-      ];
+      const payload: Cryptocurrency[] = cryptocurrencyListMockUp;
       const action = new SuccessCryptocurrencyListLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 
@@ -86,7 +69,7 @@ describe('CryptocurrencyReducer:', () => {
 
   describe('SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD action', () => {
     it('should set isLoadingSingleCryptocurrency to false', () => {
-      const payload: Cryptocurrency = new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      const payload: Cryptocurrency = cryptocurrencyMockUp;
       const action = new SuccessSingleCryptocurrencyLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 
@@ -94,7 +77,7 @@ describe('CryptocurrencyReducer:', () => {
     });
 
     it('should load the new cryptocurrency in singleCryptocurrency', () => {
-      const payload: Cryptocurrency = new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+      const payload: Cryptocurrency = cryptocurrencyMockUp;
       const action = new SuccessSingleCryptocurrencyLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 

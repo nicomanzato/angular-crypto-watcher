@@ -6,6 +6,7 @@ import {
   FailureGlobalDataLoad,
 } from './globalData.actions';
 import { GlobalData } from './../../model/globalData';
+import { globalDataMockUp } from './../../testing/globalData.mockup';
 
 describe('GlobalDataReducer', () => {
   describe('REQUEST_GLOBAL_DATA_LOAD action', () => {
@@ -19,7 +20,7 @@ describe('GlobalDataReducer', () => {
 
   describe('SUCCESS_GLOBAL_DATA_LOAD action', () => {
     it('should set isLoadingGlobalData to false', () => {
-      const payload: GlobalData = new GlobalData(0, 0, 0, 0, 0, 0);
+      const payload: GlobalData = globalDataMockUp;
       const action = new SuccessGlobalDataLoad(payload);
       const state = globalDataReducer(initialState, action);
 
@@ -27,7 +28,7 @@ describe('GlobalDataReducer', () => {
     });
 
     it('should load new global data in globalData', () => {
-      const payload: GlobalData = new GlobalData(0, 0, 0, 0, 0, 0);
+      const payload: GlobalData = globalDataMockUp;
       const action = new SuccessGlobalDataLoad(payload);
       const state = globalDataReducer(initialState, action);
 

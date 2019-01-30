@@ -10,47 +10,54 @@ import {
   selectCryptocurrencyList,
 } from './cryptocurrency.selector';
 
+import { appStateMockUp } from './../../testing/app.mockup';
+import { cryptocurrencyStateMockUp } from './../../testing/cryptocurrency.mockup';
+
 describe('Cryptocurrency Selectors:', () => {
   describe('selectCryptocurrency', () => {
     it('should return a CryptocurrencyState', () => {
-      const appState: AppState = {
-        cryptocurrency: 'This is the cryptocurrency state mock',
-        globalData: 'And this is the global data state mock',
-      }
+      const appState: AppState = appStateMockUp;
+      const cryptocurrencyState: CryptocurrencyState = cryptocurrencyStateMockUp;
 
-      expect(selectCryptocurrency(appState)).toBe('This is the cryptocurrency state mock');
+      expect(selectCryptocurrency(appState)).toBe(cryptocurrencyState);
     });
   });
 
   describe('selectSingleCryptocurrencySymbol', () => {
     it('should return a SingleCryptocurrencySymbol', () => {
-      const appState: AppState = {
-        cryptocurrency: { singleCryptocurrencySymbol: 'Symbol Mock' },
-        globalData: 'And this is the global data state mock',
-      }
+      const cryptocurrencyState: CryptocurrencyState = cryptocurrencyStateMockUp;
+      const expectedSymbol: string = cryptocurrencyState.singleCryptocurrencySymbol;
 
-      expect(selectSingleCryptocurrencySymbol(appState.cryptocurrency)).toBe('Symbol Mock');
+      expect(selectSingleCryptocurrencySymbol(cryptocurrencyState)).toBe(expectedSymbol);
     });
   });
 
   describe('selectCryptocurrencyList', () => {
     it('should return a CryptocurrencyList', () => {
-      const cryptocurrencyList = [new Cryptocurrency('', 'bitcoin', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)];
-      const appState: AppState = {
-        cryptocurrency: { cryptocurrencyList: cryptocurrencyList, searchKeyword: 'bit' },
-      };
+      const appState: AppState = appStateMockUp;
+      const cryptocurrencyList = appStateMockUp.cryptocurrency.cryptocurrencyList;
 
       expect(selectCryptocurrencyList(appState)).toEqual(cryptocurrencyList);
     });
 
-    it('should return an empty list', () => {
-      const cryptocurrencyList = [new Cryptocurrency('', 'bitcoin', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)];
-      const appState: AppState = {
-        cryptocurrency: { cryptocurrencyList: cryptocurrencyList, searchKeyword: 'eth' },
-      };
+    it('should match with one result', () => {
+      const appState: AppState = Object.assign({}, appStateMockUp);
+      const cryptocurrencyState: CryptocurrencyState = Object.assign({}, cryptocurrencyStateMockUp);
+      cryptocurrencyState.searchKeyword = 'eth';
+      appState.cryptocurrency = cryptocurrencyState;
+
+      expect(selectCryptocurrencyList(appState).length).toEqual(1);
+    });
+
+    it('should return an empty list when there is no match', () => {
+      const appState: AppState = Object.assign({}, appStateMockUp);
+      const cryptocurrencyState: CryptocurrencyState = Object.assign({}, cryptocurrencyStateMockUp);
+      cryptocurrencyState.searchKeyword = 'not-a-match';
+      appState.cryptocurrency = cryptocurrencyState;
 
       expect(selectCryptocurrencyList(appState).length).toEqual(0);
     });
+
   });
 
 });

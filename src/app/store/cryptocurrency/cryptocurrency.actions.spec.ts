@@ -9,6 +9,7 @@ import {
   ActionTypes,
 } from './cryptocurrency.actions';
 import { Cryptocurrency } from './../../model/cryptocurrency';
+import { cryptocurrencyListMockUp, cryptocurrencyMockUp } from './../../testing/cryptocurrency.mockup';
 
 describe('CryptocurrencyActions:', () => {
 
@@ -18,10 +19,7 @@ describe('CryptocurrencyActions:', () => {
   });
 
   it('should generate SUCCESS_CRYPTOCURRENCY_LIST_LOAD', () => {
-    const payload: Cryptocurrency[] = [
-      new Cryptocurrency('1', 'Bitcoin', 'BTC', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-      new Cryptocurrency('2', 'Ethereum', 'ETH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-    ];
+    const payload: Cryptocurrency[] = cryptocurrencyListMockUp;
 
     const result = new SuccessCryptocurrencyListLoad(payload);
     expect({ ... result }).toEqual({ type: ActionTypes.SUCCESS_CRYPTOCURRENCY_LIST_LOAD, payload });
@@ -41,7 +39,7 @@ describe('CryptocurrencyActions:', () => {
   });
 
   it('should generate SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD', () => {
-    const payload: Cryptocurrency = new Cryptocurrency('2', 'Etherem', 'ETH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+    const payload: Cryptocurrency = cryptocurrencyMockUp;
     const result = new SuccessSingleCryptocurrencyLoad(payload);
 
     expect({ ... result }).toEqual({ type: ActionTypes.SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD, payload });
