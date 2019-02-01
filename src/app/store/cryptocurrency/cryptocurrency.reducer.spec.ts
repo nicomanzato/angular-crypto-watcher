@@ -10,7 +10,7 @@ import {
   ChangeSearchKeyword,
 } from './cryptocurrency.actions';
 import { Cryptocurrency } from './../../model/cryptocurrency';
-import { cryptocurrencyListMockUp, cryptocurrencyMockUp } from './../../testing/cryptocurrency.mockup';
+import { cryptocurrencyListMockUp, cryptocurrencyMockUp, cryptocurrencyMockUp2 } from './../../testing/cryptocurrency.mockup';
 
 describe('CryptocurrencyReducer:', () => {
   describe('REQUEST_CRYPTOCURRENCY_LIST_LOAD action', () => {
@@ -59,7 +59,7 @@ describe('CryptocurrencyReducer:', () => {
     });
 
     it('should load the symbol in singleCryptocurrencySymbol', () => {
-      const payload: string = 'BTC';
+      const payload: string = 'ETH';
       const action =  new RequestSingleCryptocurrencyLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 
@@ -69,7 +69,7 @@ describe('CryptocurrencyReducer:', () => {
 
   describe('SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD action', () => {
     it('should set isLoadingSingleCryptocurrency to false', () => {
-      const payload: Cryptocurrency = cryptocurrencyMockUp;
+      const payload: Cryptocurrency = cryptocurrencyMockUp2;
       const action = new SuccessSingleCryptocurrencyLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 
@@ -77,7 +77,7 @@ describe('CryptocurrencyReducer:', () => {
     });
 
     it('should load the new cryptocurrency in singleCryptocurrency', () => {
-      const payload: Cryptocurrency = cryptocurrencyMockUp;
+      const payload: Cryptocurrency = cryptocurrencyMockUp2;
       const action = new SuccessSingleCryptocurrencyLoad(payload);
       const state = cryptocurrencyReducer(initialState, action);
 

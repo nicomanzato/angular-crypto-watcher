@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { ActionTypes, SuccessGlobalDataLoad } from './globalData.actions';
-import { EMPTY } from 'rxjs';
-import { map, mergeMap, withLatestFrom } from 'rxjs/operators';
+import { ActionTypes, SuccessGlobalDataLoad, FailureGlobalDataLoad } from './globalData.actions';
+import { EMPTY, of } from 'rxjs';
+import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
 import { GlobalDataService } from './../../global-data.service';
 
 @Injectable()
@@ -15,6 +15,7 @@ export class GlobalDataEffects {
       mergeMap(() => this.globalDataService.getGlobalData()
         .pipe(
           map(globalData => new SuccessGlobalDataLoad(globalData)),
+          catchError(() => of(new FailureGlobalDataLoad())),
         ))
       );
 

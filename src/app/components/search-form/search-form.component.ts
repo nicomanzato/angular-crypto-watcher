@@ -15,12 +15,8 @@ import { ChangeSearchKeyword } from './../../store/cryptocurrency/cryptocurrency
 })
 export class SearchFormComponent implements OnInit {
 
-  searchForm = this.fb.group({
-    searchKeyword: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(10),
-    ]),
-  });
+  searchForm: FormGroup;
+  submitted: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +25,16 @@ export class SearchFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.initializeSearchForm();
+  }
+
+  initializeSearchForm() {
+    this.searchForm = this.fb.group({
+      searchKeyword: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(10),
+      ]),
+    });
   }
 
   getSearchKeyword() {
@@ -36,17 +42,14 @@ export class SearchFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     this.store.dispatch(new ChangeSearchKeyword(this.getSearchKeyword()));
     this.router.navigateByUrl('/cryptocurrencies');
   }
 
   onClear() {
-    this.searchForm = this.fb.group({
-      searchKeyword: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(10),
-      ]),
-    });
+    this.submitted = false;
+    this.initializeSearchForm();
     this.store.dispatch(new ChangeSearchKeyword(''));
     this.router.navigateByUrl('/cryptocurrencies');
   }

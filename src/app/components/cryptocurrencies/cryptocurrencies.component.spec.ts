@@ -4,6 +4,7 @@ import { CryptocurrenciesComponent } from './cryptocurrencies.component';
 import { RouterModule } from '@angular/router';
 import { StoreModule, Store } from '@ngrx/store';
 import { AppState, rootReducer } from './../../store/app.state';
+import { cryptocurrencyListMockUp } from './../../testing/cryptocurrency.mockup';
 
 describe('CryptocurrenciesComponent', () => {
   let component: CryptocurrenciesComponent;
