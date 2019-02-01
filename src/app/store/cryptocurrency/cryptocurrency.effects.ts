@@ -13,6 +13,7 @@ import { CryptocurrencyService } from './../../cryptocurrency.service';
 import { CryptocurrencyState } from './cryptocurrency.reducer';
 import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector';
 import { Store } from '@ngrx/store';
+import { AppState } from './../app.state';
 
 @Injectable()
 export class CryptocurrencyEffects {
@@ -50,6 +51,6 @@ export class CryptocurrencyEffects {
   constructor(
     private actions$: Actions,
     private cryptocurrencyService: CryptocurrencyService,
-    private store$: Store<CryptocurrencyState>,
+    private store$: Store<AppState>,
   ) {}
 }

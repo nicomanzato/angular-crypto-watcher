@@ -13,7 +13,7 @@ import { Observable, of } from 'rxjs';
 export class GlobalDataComponent implements OnInit {
 
   globalData$: Observable<GlobalData>;
-  isLoadingGlobalData$: Observable<boolean> = false;
+  isLoadingGlobalData$: Observable<boolean>;
 
   constructor(
     private globalDataService: GlobalDataService,

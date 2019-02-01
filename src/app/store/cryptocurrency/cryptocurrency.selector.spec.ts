@@ -25,10 +25,11 @@ describe('Cryptocurrency Selectors:', () => {
 
   describe('selectSingleCryptocurrencySymbol', () => {
     it('should return a SingleCryptocurrencySymbol', () => {
+      const appState: AppState = appStateMockUp;
       const cryptocurrencyState: CryptocurrencyState = cryptocurrencyStateMockUp;
       const expectedSymbol: string = cryptocurrencyState.singleCryptocurrencySymbol;
 
-      expect(selectSingleCryptocurrencySymbol(cryptocurrencyState)).toBe(expectedSymbol);
+      expect(selectSingleCryptocurrencySymbol(appState)).toBe(expectedSymbol);
     });
   });
 

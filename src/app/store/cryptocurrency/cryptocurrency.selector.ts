@@ -3,7 +3,10 @@ import { CryptocurrencyState } from './cryptocurrency.reducer';
 import { AppState } from './../app.state';
 
 export const selectCryptocurrency = (state: AppState) => state.cryptocurrency;
-export const selectSingleCryptocurrencySymbol = (state: CryptocurrencyState) => state.singleCryptocurrencySymbol;
+
+export const selectSingleCryptocurrencySymbol = (appState: AppState) => {
+    return selectCryptocurrency(appState).singleCryptocurrencySymbol;
+}
 
 export const selectCryptocurrencyList = createSelector(
   selectCryptocurrency,
