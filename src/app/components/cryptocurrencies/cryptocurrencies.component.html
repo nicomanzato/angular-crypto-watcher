@@ -1,5 +1,12 @@
-<div *ngIf="!(isLoadingCryptocurrencyList$ | async)" class="cryptocurrencies-container" style="overflow-x:auto;">
-  <div class="cryptocurrencies-table-scroller" *ngIf="(cryptocurrencies$ | async).length > 0">
+<div
+  *ngIf="!(isLoadingCryptocurrencyList$ | async)"
+  class="cryptocurrencies-container"
+  style="overflow-x:auto;"
+>
+  <div
+    class="cryptocurrencies-table-scroller"
+    *ngIf="(cryptocurrencies$ | async).length > 0"
+  >
     <table class="cryptocurrencies-table">
       <tr>
         <th>Rank</th>
@@ -11,19 +18,21 @@
         <th>Change(24h)</th>
         <th>Symbol</th>
       </tr>
-      <tr *ngFor="let cryptocurrency of cryptocurrencies$ | async">
-        <td>{{cryptocurrency.rank | number : fractionSize}}</td>
+      <tr *ngFor="let cryptocurrency of (cryptocurrencies$ | async)">
+        <td>{{ cryptocurrency.rank | number: fractionSize }}</td>
         <td>
           <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
-            {{cryptocurrency.name}}
+            {{ cryptocurrency.name }}
           </a>
         </td>
-        <td>${{cryptocurrency.market_cap_usd | number : fractionSize}}</td>
-        <td>${{cryptocurrency.price_usd | number : fractionSize}}</td>
-        <td>${{cryptocurrency.last_24h_volume_usd | number : fractionSize}}</td>
-        <td>{{cryptocurrency.available_supply | number : fractionSize}}</td>
-        <td>{{cryptocurrency.percent_change_24h | number : fractionSize}}%</td>
-        <td>{{cryptocurrency.symbol}}</td>
+        <td>${{ cryptocurrency.market_cap_usd | number: fractionSize }}</td>
+        <td>${{ cryptocurrency.price_usd | number: fractionSize }}</td>
+        <td>
+          ${{ cryptocurrency.last_24h_volume_usd | number: fractionSize }}
+        </td>
+        <td>{{ cryptocurrency.available_supply | number: fractionSize }}</td>
+        <td>{{ cryptocurrency.percent_change_24h | number: fractionSize }}%</td>
+        <td>{{ cryptocurrency.symbol }}</td>
       </tr>
     </table>
   </div>
@@ -31,6 +40,9 @@
     No results available
   </div>
 </div>
-<div *ngIf="(isLoadingCryptocurrencyList$ | async)" class="cryptocurrencies-container">
+<div
+  *ngIf="(isLoadingCryptocurrencyList$ | async)"
+  class="cryptocurrencies-container"
+>
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>

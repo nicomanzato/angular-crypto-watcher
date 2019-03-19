@@ -1,16 +1,18 @@
-@import './../../../base';
+@import "./../../../base";
 
 .cryptocurrency-container {
   display: inline-block;
 }
 
-.cryptocurrency-table td, th {
+.cryptocurrency-table td,
+th {
   border-bottom: 1px solid $border-primary-color;
   text-align: center;
   padding: $spacing-M;
 }
 
-.cryptocurrency-table a:link, .cryptocurrency-table a:visited {
+.cryptocurrency-table a:link,
+.cryptocurrency-table a:visited {
   text-decoration: none;
   display: inline-block;
   color: $text-primary-color;
