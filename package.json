@@ -13,8 +13,14 @@
   "dependencies": {
     "@angular/animations": "^7.2.1",
     "@angular/cdk": "^7.2.1",
+<<<<<<< HEAD
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",
+=======
+    "@angular/cli": "^1.4.9",
+    "@angular/common": "~7.2.0",
+    "@angular/compiler-cli": "^4.4.6",
+>>>>>>> c9a3d0f02e8bbc06e5e1cde491fdd92e53230664
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
     "@angular/material": "^7.2.1",
@@ -31,12 +37,22 @@
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.4.0",
     "tslib": "^1.9.0",
+<<<<<<< HEAD
+=======
+    "typescript": "^2.3.4",
+>>>>>>> c9a3d0f02e8bbc06e5e1cde491fdd92e53230664
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
+<<<<<<< HEAD
     "@angular/cli": "~7.2.2",
     "@angular/compiler-cli": "~7.2.0",
+=======
+    "@angular/cli": "^1.4.9",
+    "@angular/compiler": "~7.2.0",
+    "@angular/compiler-cli": "^4.4.6",
+>>>>>>> c9a3d0f02e8bbc06e5e1cde491fdd92e53230664
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
