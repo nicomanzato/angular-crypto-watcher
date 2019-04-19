@@ -1,4 +1,4 @@
-export const API_PORT = process.env.PORT || 8080;
+const API_PORT = process.env.PORT || 8080;
 
 export const environment = {
   production: true,

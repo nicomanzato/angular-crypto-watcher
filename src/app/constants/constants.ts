@@ -1,4 +1,4 @@
-import { environment, API_PORT } from "./../../environments/environment";
+import { environment } from "./../../environments/environment";
 
 export const constants = {
   ENDPOINTS: {
