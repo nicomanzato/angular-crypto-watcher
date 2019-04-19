@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "ng serve",
     "serve": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node server.js\"",
-    "preinstall": "npm install -g angular-cli",
     "heroku-postbuild": "ng build --prod",
     "build": "ng build",
     "test": "ng test",
@@ -33,6 +32,7 @@
     "angular-in-memory-web-api": "^0.8.0",
     "express": "^4.16.4",
     "node-coinmarketcap-rest-api": "^0.2.0",
+
     "core-js": "^2.5.4",
     "hammerjs": "^2.0.8",
     "jasmine-marbles": "^0.4.1",
