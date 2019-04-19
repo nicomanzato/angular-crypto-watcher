@@ -14,7 +14,7 @@ import { Store, select } from '@ngrx/store';
 export class CryptocurrencyComponent implements OnInit {
 
   private cryptocurrency$: Observable<Cryptocurrency>;
-  private isLoadingSingleCryptocurrency$: Observable<boolean>;
+  public isLoadingSingleCryptocurrency$: Observable<boolean>;
 
   constructor(
     private route: ActivatedRoute,
