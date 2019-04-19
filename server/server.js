@@ -51,10 +51,12 @@ app.get("/api/global_data", function(req, res) {
 });
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + "/dist/angular-cryptowatcher"));
+app.use(express.static(__dirname + "/dist/angular-crypto-watcher"));
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname + "/dist/angular-cryptowatcher/index.html"));
+  res.sendFile(
+    path.join(__dirname + "/dist/angular-crypto-watcher/index.html")
+  );
 });
 
 app.listen(process.env.PORT || 8080);
