@@ -3,15 +3,14 @@
   "description": "a really cool app",
   "version": "1.0.0",
   "engines": {
-    "node": "10.15.3",
+    "node": "v10.15.3",
     "npm": "6.4.1"
   },
   "scripts": {
     "ng": "ng",
     "start": "node server/server.js",
-    "serve": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node server/server.js\"",
-    "postinstall": "cd server && npm install",
-    "heroku-postbuild": "npm install",
+    "serve": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node server.js\"",
+    "heroku-postbuild": "ng build --prod",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,8 +18,9 @@
   },
   "private": true,
   "dependencies": {
+    "express": "^4.16.4",
+    "node-coinmarketcap-rest-api": "^0.2.0",
     "@angular/animations": "^7.2.1",
-    "@angular/cli": "^7.3.8",
     "@angular/cdk": "^7.2.1",
     "@angular/common": "~7.2.0",
     "@angular/compiler": "~7.2.0",

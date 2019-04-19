@@ -50,9 +50,9 @@ app.get("/api/global_data", function(req, res) {
   });
 });
 
-app.use(express.static(__dirname + "./../dist/CryptoWatcher"));
+app.use(express.static(__dirname + "./dist/CryptoWatcher/"));
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname + "./../dist/CryptoWatcher/index.html"));
+  res.sendFile(path.join(__dirname + "./dist/CryptoWatcher/index.html"));
 });
 
 app.listen(process.env.PORT || 8080);
