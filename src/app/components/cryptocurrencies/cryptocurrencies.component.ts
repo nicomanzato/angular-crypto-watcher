@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CryptocurrencyService } from './../../cryptocurrency.service';
 import { Cryptocurrency } from './../../model/cryptocurrency'
 import { Observable } from 'rxjs';
 import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions';

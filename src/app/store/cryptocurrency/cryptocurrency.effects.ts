@@ -9,7 +9,7 @@ import {
 } from './cryptocurrency.actions';
 import { EMPTY, of, Observable } from 'rxjs';
 import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
-import { CryptocurrencyService } from './../../cryptocurrency.service';
+import { CryptocurrencyService } from './../../services/cryptocurrency.service';
 import { CryptocurrencyState } from './cryptocurrency.reducer';
 import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector';
 import { Store } from '@ngrx/store';

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalDataService } from '../../global-data.service';
 import { GlobalData } from './../../model/globalData';
 import { RequestGlobalDataLoad } from './../../store/globalData/globalData.actions';
 import { Store, select } from '@ngrx/store';
@@ -16,7 +15,6 @@ export class GlobalDataComponent implements OnInit {
   isLoadingGlobalData$: Observable<boolean>;
 
   constructor(
-    private globalDataService: GlobalDataService,
     private store: Store<{ globalData }>,
   ) { }
 

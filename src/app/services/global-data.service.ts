@@ -1,19 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { GlobalData, GlobalDataAdapter } from "./model/globalData";
+import { GlobalData, GlobalDataAdapter } from "./../model/globalData";
 import { Observable, of } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
+import { constants } from "./../constants/constants";
 
 @Injectable({
   providedIn: "root"
 })
 export class GlobalDataService {
-  private globalDataUrl = "http://localhost:8080/global_data";
-
   constructor(private http: HttpClient, private adapter: GlobalDataAdapter) {}
 
   getGlobalData(): Observable<any> {
-    return this.http.get<any>(this.globalDataUrl).pipe(
+    return this.http.get<any>(constants.ENDPOINTS.GLOBAL_DATA_API).pipe(
       map((item: any) => this.adapter.adapt(item)),
       catchError(this.handleError("getGlobalData", []))
     );

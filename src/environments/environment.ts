@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  ENDPOINTS: {
+    CRYPTOCURRENCY_API: "http://localhost:8080/cryptocurrency",
+    GLOBAL_DATA_API: "http://localhost:8080/global_data"
+  }
 };
 
 /*

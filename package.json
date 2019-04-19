@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"ng serve\" \"node ./server/server\"",
+    "start": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node ./server/server\"",
     "postinstall": "cd server && npm install",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {

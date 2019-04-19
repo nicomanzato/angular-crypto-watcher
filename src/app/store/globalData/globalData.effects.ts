@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ActionTypes, SuccessGlobalDataLoad, FailureGlobalDataLoad } from './globalData.actions';
 import { EMPTY, of } from 'rxjs';
 import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
-import { GlobalDataService } from './../../global-data.service';
+import { GlobalDataService } from './../../services/global-data.service';
 
 @Injectable()
 export class GlobalDataEffects {
