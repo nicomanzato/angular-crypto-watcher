@@ -13,7 +13,7 @@ var allowCrossDomain = function(req, res, next) {
 
   next();
 };
-
+/*
 app.configure(function() {
   app.use(express.favicon());
   app.use(express.logger("dev"));
@@ -23,7 +23,7 @@ app.configure(function() {
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   app.use(express.static(path.join(__dirname, "public")));
 });
-
+*/
 /**
  * Root
  */
@@ -51,12 +51,10 @@ app.get("/api/global_data", function(req, res) {
 });
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + "/dist/angular-crypto-watcher"));
+app.use(express.static(__dirname + "/../dist/"));
 
-app.get("/", function(req, res) {
-  res.sendFile(
-    path.join(__dirname + "/dist/angular-crypto-watcher/index.html")
-  );
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname + "/../dist/index.html"));
 });
 
 app.listen(process.env.PORT || 8080);
