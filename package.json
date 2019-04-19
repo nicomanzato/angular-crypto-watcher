@@ -1,6 +1,10 @@
 {
   "name": "crypto-watcher",
-  "version": "0.0.0",
+  "description": "a really cool app",
+  "version": "1.0.0",
+  "engines": {
+    "node": "10.15.3"
+  },
   "scripts": {
     "ng": "ng",
     "start": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node ./server/server\"",
