@@ -1,10 +1,11 @@
-// This file can be replaced during build by using the `fileReplacements` array.
+// This file can be replaced during builexport const API_PORT = 80;d by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
   production: false,
   ENDPOINTS: {
     ROOT: "http://localhost:",
+    PORT: 8080,
   }
 };
 
