@@ -10,7 +10,7 @@
     "ng": "ng",
     "start": "node server/server.js",
     "serve": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node server/server.js\"",
-    "postinstall": "ng build && cd server && npm install",
+    "postinstall": "cd server && npm install",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
