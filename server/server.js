@@ -27,27 +27,34 @@ app.configure(function() {
 /**
  * Root
  */
-app.get("/", function(req, res) {
+app.get("/api/", function(req, res) {
   res.set("Content-Type", "text/plain");
   res.send("CoinMarketCap API is running...");
 });
 
-app.get("/cryptocurrency", function(req, res) {
+app.get("/api/cryptocurrency", function(req, res) {
   coinmarketcap.getAllTickers(coins => {
     res.send(coins.getTop(100));
   });
 });
 
-app.get("/cryptocurrency/:symbol", function(req, res) {
+app.get("/api/cryptocurrency/:symbol", function(req, res) {
   coinmarketcap.getAllTickers(coins => {
     res.send(coins.get(req.route.params.symbol));
   });
 });
 
-app.get("/global_data", function(req, res) {
+app.get("/api/global_data", function(req, res) {
   coinmarketcap.getGlobalData(data => {
     res.send(data);
   });
+});
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + "/dist/angular-cryptowatcher"));
+
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname + "/dist/angular-cryptowatcher/index.html"));
 });
 
 app.listen(process.env.PORT || 8080);

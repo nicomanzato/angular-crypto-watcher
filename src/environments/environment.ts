@@ -7,8 +7,8 @@ export const API_PORT = process.env.PORT || 8080;
 export const environment = {
   production: false,
   ENDPOINTS: {
-    CRYPTOCURRENCY_API: `http://localhost:${API_PORT}/cryptocurrency`,
-    GLOBAL_DATA_API: `http://localhost:${API_PORT}/global_data`
+    CRYPTOCURRENCY_API: `http://localhost:${API_PORT}/api/cryptocurrency`,
+    GLOBAL_DATA_API: `http://localhost:${API_PORT}/api/global_data`
   }
 };
 
