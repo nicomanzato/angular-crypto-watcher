@@ -1,16 +1,9 @@
 {
   "name": "crypto-watcher",
-  "description": "a really cool app",
-  "version": "1.0.0",
-  "engines": {
-    "node": "v10.15.3",
-    "npm": "6.4.1"
-  },
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server/server.js",
-    "serve": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node server.js\"",
-    "postbuild": "ng build --aot --prod",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,9 +13,8 @@
   "dependencies": {
     "@angular/animations": "^7.2.1",
     "@angular/cdk": "^7.2.1",
-    "@angular/cli": "^7.3.8",
     "@angular/common": "~7.2.0",
-    "@angular/compiler-cli": "^7.2.13",
+    "@angular/compiler": "~7.2.0",
     "@angular/core": "~7.2.0",
     "@angular/forms": "~7.2.0",
     "@angular/material": "^7.2.1",
@@ -33,30 +25,23 @@
     "@ngrx/store": "^7.1.0",
     "@ngrx/store-devtools": "^7.1.0",
     "angular-in-memory-web-api": "^0.8.0",
-    "concurrently": "^4.1.0",
     "core-js": "^2.5.4",
-    "express": "^4.16.4",
     "hammerjs": "^2.0.8",
     "jasmine-marbles": "^0.4.1",
-    "node-coinmarketcap-rest-api": "^0.2.0",
-    "process": "^0.11.10",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.4.0",
     "tslib": "^1.9.0",
-    "typescript": "~3.2.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
-    "@angular/cli": "^7.3.8",
-    "@angular/compiler": "~7.2.0",
-    "@angular/compiler-cli": "^7.2.13",
+    "@angular/cli": "~7.2.2",
+    "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^8.9.5",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
-    "enhanced-resolve": "^3.3.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -66,6 +51,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.11.0"
+    "tslint": "~5.11.0",
+    "typescript": "~3.2.2"
   }
 }
