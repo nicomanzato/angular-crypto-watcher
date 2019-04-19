@@ -10,6 +10,7 @@
     "ng": "ng",
     "start": "concurrently -p \"[{name}]\" -n \"ANGULAR,SERVER\" -c \"bgGreen.bold,bgMagenta.bold\" \"ng serve\" \"node ./server/server\"",
     "postinstall": "cd server && npm install",
+    "heroku-postbuild": "npm install",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
