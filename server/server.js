@@ -21,7 +21,7 @@ app.use(allowCrossDomain);
 //app.use(express.bodyParser());
 //app.use(express.methodOverride());
 //app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-app.use(express.static(path.join(__dirname, "public")));
+//app.use(express.static(path.join(__dirname, "public")));
 //});
 
 /**
@@ -40,7 +40,7 @@ app.get("/api/cryptocurrency", function(req, res) {
 
 app.get("/api/cryptocurrency/:symbol", function(req, res) {
   coinmarketcap.getAllTickers(coins => {
-    res.send(coins.get(req.route.params.symbol));
+    res.send(coins.get(req.params.symbol));
   });
 });
 
@@ -50,11 +50,9 @@ app.get("/api/global_data", function(req, res) {
   });
 });
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + "/../dist/"));
-
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname + "/../dist/index.html"));
+app.use(express.static(__dirname + "./../dist"));
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname + "./../dist/index.html"));
 });
 
 app.listen(process.env.PORT || 8080);
