@@ -1,7 +1,8 @@
-import { environment } from "./../../environments/environment";
+import { environment, API_PORT } from "./../../environments/environment";
 
 export const constants = {
   ENDPOINTS: {
+    API_PORT: API_PORT,
     CRYPTOCURRENCY_API: environment.ENDPOINTS.CRYPTOCURRENCY_API,
     GLOBAL_DATA_API: environment.ENDPOINTS.GLOBAL_DATA_API
   }

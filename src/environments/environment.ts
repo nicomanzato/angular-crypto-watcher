@@ -2,11 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+export const API_PORT = process.env.PORT || 8080;
+
 export const environment = {
   production: false,
   ENDPOINTS: {
-    CRYPTOCURRENCY_API: "http://localhost:8080/cryptocurrency",
-    GLOBAL_DATA_API: "http://localhost:8080/global_data"
+    CRYPTOCURRENCY_API: `http://localhost:${API_PORT}/cryptocurrency`,
+    GLOBAL_DATA_API: `http://localhost:${API_PORT}/global_data`
   }
 };
 
