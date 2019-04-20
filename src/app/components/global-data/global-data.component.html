@@ -1,10 +1,44 @@
-<div *ngIf="!(isLoadingGlobalData$ | async)" class="global-data-container">
+<div class="global-data-container">
   <ul class="global-data-ul">
-    <li class="global-data-li"><span>Total Market Cap: ${{(globalData$ | async).total_market_cap_usd | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Total 24h Volume: ${{(globalData$ | async).total_24h_volume_usd | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Bitcoin Dominance: {{(globalData$ | async).bitcoin_percentage_of_market_cap | number : fractionSize}}%</span></li>
-    <li class="global-data-li"><span>Active Currencies: {{(globalData$ | async).active_currencies | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Active Assets: {{(globalData$ | async).active_assets | number : fractionSize}}</span></li>
-    <li class="global-data-li"><span>Active Markets: {{(globalData$ | async).active_markets | number : fractionSize}}</span></li>
+    <li class="global-data-li">
+      <span
+        >Total Market Cap: ${{
+          globalData.total_market_cap_usd | number: fractionSize
+        }}</span
+      >
+    </li>
+    <li class="global-data-li">
+      <span
+        >Total 24h Volume: ${{
+          globalData.total_24h_volume_usd | number: fractionSize
+        }}</span
+      >
+    </li>
+    <li class="global-data-li">
+      <span
+        >Bitcoin Dominance:
+        {{
+          globalData.bitcoin_percentage_of_market_cap | number: fractionSize
+        }}%</span
+      >
+    </li>
+    <li class="global-data-li">
+      <span
+        >Active Currencies:
+        {{ globalData.active_currencies | number: fractionSize }}</span
+      >
+    </li>
+    <li class="global-data-li">
+      <span
+        >Active Assets:
+        {{ globalData.active_assets | number: fractionSize }}</span
+      >
+    </li>
+    <li class="global-data-li">
+      <span
+        >Active Markets:
+        {{ globalData.active_markets | number: fractionSize }}</span
+      >
+    </li>
   </ul>
 </div>

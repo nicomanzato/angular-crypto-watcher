@@ -1,12 +1,14 @@
 <div class="app-container">
-  <app-global-data></app-global-data>
+  <global-data
+    [globalData]="globalData$ | async"
+    *ngIf="!(isLoadingGlobalData$ | async)"
+  ></global-data>
   <header class="header-container">
-    <div class="title-container">
-      <h1>CryptoWatcher</h1>
-    </div>
-    <app-search-form></app-search-form>
+    <div class="title-container"><h1>CryptoWatcher</h1></div>
+    <app-search-form
+      (onSubmit)="handleSearchFormOnSubmit($event)"
+      (onClear)="handleSearchFormOnClear()"
+    ></app-search-form>
   </header>
-  <div class="router-container">
-    <router-outlet></router-outlet>
-  </div>
+  <div class="router-container"><router-outlet></router-outlet></div>
 </div>

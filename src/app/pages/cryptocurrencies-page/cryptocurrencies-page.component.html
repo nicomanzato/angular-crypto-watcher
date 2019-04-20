@@ -1,0 +1,11 @@
+<cryptocurrencies
+  [cryptocurrencies]="cryptocurrencies$ | async"
+  *ngIf="!(isLoadingCryptocurrencyList$ | async)"
+>
+</cryptocurrencies>
+<div
+  *ngIf="(isLoadingCryptocurrencyList$ | async)"
+  class="cryptocurrencies-container"
+>
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

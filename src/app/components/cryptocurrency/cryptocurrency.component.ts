@@ -1,37 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { Cryptocurrency } from './../../model/cryptocurrency';
-import { Observable } from 'rxjs';
-import { RequestSingleCryptocurrencyLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
-import { Store, select } from '@ngrx/store';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Location } from "@angular/common";
+import { ActivatedRoute } from "@angular/router";
+import { Store, select } from "@ngrx/store";
+import { Observable } from "rxjs";
+
+import { RequestSingleCryptocurrencyLoad } from "./../../store/cryptocurrency/cryptocurrency.actions";
+
+import { Cryptocurrency } from "./../../model/cryptocurrency";
 
 @Component({
-  selector: 'app-cryptocurrency',
-  templateUrl: './cryptocurrency.component.html',
-  styleUrls: ['./cryptocurrency.component.scss']
+  selector: "cryptocurrency",
+  templateUrl: "./cryptocurrency.component.html",
+  styleUrls: ["./cryptocurrency.component.scss"]
 })
 export class CryptocurrencyComponent implements OnInit {
+  @Input() cryptocurrency: Cryptocurrency;
+  @Output() onGoBack: EventEmitter<any> = new EventEmitter();
 
-  private cryptocurrency$: Observable<Cryptocurrency>;
-  public isLoadingSingleCryptocurrency$: Observable<boolean>;
+  constructor() {}
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private store: Store<{ cryptocurrency }>,
-  ) { }
-
-  ngOnInit() {
-    let cryptocurrencySymbol = this.route.snapshot.paramMap.get('id');
-
-    this.store.dispatch(new RequestSingleCryptocurrencyLoad(cryptocurrencySymbol));
-    this.cryptocurrency$ = this.store.select(state => state.cryptocurrency.singleCryptocurrency);
-    this.isLoadingSingleCryptocurrency$ = this.store.select(state => state.cryptocurrency.isLoadingSingleCryptocurrency);
-  }
+  ngOnInit() {}
 
   goBack(): void {
-    this.location.back();
+    this.onGoBack.emit();
   }
-
 }

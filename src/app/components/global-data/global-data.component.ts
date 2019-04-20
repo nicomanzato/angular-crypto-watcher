@@ -1,27 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { GlobalData } from './../../model/globalData';
-import { RequestGlobalDataLoad } from './../../store/globalData/globalData.actions';
-import { Store, select } from '@ngrx/store';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, Input } from "@angular/core";
+import { GlobalData } from "./../../model/globalData";
 
 @Component({
-  selector: 'app-global-data',
-  templateUrl: './global-data.component.html',
-  styleUrls: ['./global-data.component.scss']
+  selector: "global-data",
+  templateUrl: "./global-data.component.html",
+  styleUrls: ["./global-data.component.scss"]
 })
 export class GlobalDataComponent implements OnInit {
+  @Input() globalData: GlobalData;
 
-  globalData$: Observable<GlobalData>;
-  isLoadingGlobalData$: Observable<boolean>;
+  constructor() {}
 
-  constructor(
-    private store: Store<{ globalData }>,
-  ) { }
-
-  ngOnInit() {
-    this.store.dispatch(new RequestGlobalDataLoad());
-    this.globalData$ = this.store.select(state => state.globalData.globalData);
-    this.isLoadingGlobalData$ = this.store.select(state => state.globalData.isLoadingGlobalData);
-  }
-
+  ngOnInit() {}
 }
