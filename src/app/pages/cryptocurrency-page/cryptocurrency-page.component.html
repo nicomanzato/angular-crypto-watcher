@@ -1,0 +1,13 @@
+<cryptocurrency
+  [cryptocurrency]="cryptocurrency$ | async"
+  (onGoBack)="goBack()"
+  *ngIf="!(isLoadingSingleCryptocurrency$ | async)"
+>
+</cryptocurrency>
+
+<div
+  *ngIf="(isLoadingSingleCryptocurrency$ | async)"
+  class="cryptocurrency-container"
+>
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+</div>

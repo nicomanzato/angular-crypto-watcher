@@ -1,30 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Cryptocurrency } from './../../model/cryptocurrency'
-import { Observable } from 'rxjs';
-import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
-import { Store, select } from '@ngrx/store';
-import { CryptocurrencyState } from './../../store/cryptocurrency/cryptocurrency.reducer';
-import * as fromRoot from './../../store/cryptocurrency/cryptocurrency.selector';
+import { Component, OnInit, Input } from "@angular/core";
+import { Observable } from "rxjs";
+import { Store, select } from "@ngrx/store";
+
+import { RequestCryptocurrencyListLoad } from "./../../store/cryptocurrency/cryptocurrency.actions";
+import { CryptocurrencyState } from "./../../store/cryptocurrency/cryptocurrency.reducer";
+import * as fromRoot from "./../../store/cryptocurrency/cryptocurrency.selector";
+
+import { Cryptocurrency } from "./../../model/cryptocurrency";
 
 @Component({
-  selector: 'app-cryptocurrencies',
-  templateUrl: './cryptocurrencies.component.html',
-  styleUrls: ['./cryptocurrencies.component.scss']
+  selector: "cryptocurrencies",
+  templateUrl: "./cryptocurrencies.component.html",
+  styleUrls: ["./cryptocurrencies.component.scss"]
 })
 export class CryptocurrenciesComponent implements OnInit {
+  @Input() cryptocurrencies: Cryptocurrency[];
 
-  cryptocurrencies$: Observable<Cryptocurrency[]>
-  isLoadingCryptocurrencyList$: Observable<boolean>;
+  constructor() {}
 
-  constructor(
-    private store: Store<{ cryptocurrency :CryptocurrencyState }>,
-  ) {}
-
-  ngOnInit() {
-    this.store.dispatch(new RequestCryptocurrencyListLoad());
-
-    this.cryptocurrencies$ = this.store.select(fromRoot.selectCryptocurrencyList);
-    this.isLoadingCryptocurrencyList$ = this.store.select(state => state.cryptocurrency.isLoadingCryptocurrencyList);
-  }
-
+  ngOnInit() {}
 }

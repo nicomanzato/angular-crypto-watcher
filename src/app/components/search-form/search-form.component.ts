@@ -1,28 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Cryptocurrency } from './../../model/cryptocurrency';
-import { Observable, Subject } from 'rxjs';
-import { Router } from '@angular/router';
-import { Store, select } from '@ngrx/store';
-import { ChangeSearchKeyword } from './../../store/cryptocurrency/cryptocurrency.actions';
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { FormControl, FormGroup } from "@angular/forms";
+import { Validators } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
+import { Cryptocurrency } from "./../../model/cryptocurrency";
+import { Observable, Subject } from "rxjs";
+import { Router } from "@angular/router";
+import { Store, select } from "@ngrx/store";
+import { ChangeSearchKeyword } from "./../../store/cryptocurrency/cryptocurrency.actions";
 
 @Component({
-  selector: 'app-search-form',
-  templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.scss']
+  selector: "app-search-form",
+  templateUrl: "./search-form.component.html",
+  styleUrls: ["./search-form.component.scss"]
 })
 export class SearchFormComponent implements OnInit {
-
   searchForm: FormGroup;
   submitted: boolean;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private store: Store<{ cryptocurrency }>,
-  ) { }
+  @Output() onSubmit: EventEmitter<string> = new EventEmitter();
+  @Output() onClear: EventEmitter<any> = new EventEmitter();
+
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.initializeSearchForm();
@@ -30,10 +28,10 @@ export class SearchFormComponent implements OnInit {
 
   initializeSearchForm() {
     this.searchForm = this.fb.group({
-      searchKeyword: new FormControl('', [
+      searchKeyword: new FormControl("", [
         Validators.required,
-        Validators.maxLength(10),
-      ]),
+        Validators.maxLength(10)
+      ])
     });
   }
 
@@ -41,17 +39,14 @@ export class SearchFormComponent implements OnInit {
     return this.searchForm.value.searchKeyword;
   }
 
-  onSubmit() {
+  handleOnSubmit() {
+    this.onSubmit.emit(this.getSearchKeyword());
     this.submitted = true;
-    this.store.dispatch(new ChangeSearchKeyword(this.getSearchKeyword()));
-    this.router.navigateByUrl('/cryptocurrencies');
   }
 
-  onClear() {
+  handleOnClear() {
+    this.onClear.emit();
     this.submitted = false;
     this.initializeSearchForm();
-    this.store.dispatch(new ChangeSearchKeyword(''));
-    this.router.navigateByUrl('/cryptocurrencies');
   }
-
 }
