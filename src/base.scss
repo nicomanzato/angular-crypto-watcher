@@ -3,7 +3,7 @@ $black: #000000;
 $blueRibbon: #0066ff;
 $white: #ffffff;
 $greyAlto: #dbdbdb;
-$greenPastel: #77dd77;
+$greenForest: #228b22;
 $redValencia: #d84437;
 
 // Background colors
@@ -14,6 +14,8 @@ $background-secondary-color: $white;
 $text-primary-color: $black;
 $text-secondary-color: $blueRibbon;
 $text-tertiary-color: $white;
+$text-profit-color: $greenForest;
+$text-loss-color: $redValencia;
 
 // Border colors
 $border-primary-color: $greyAlto;
