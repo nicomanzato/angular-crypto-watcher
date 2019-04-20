@@ -3,14 +3,14 @@
     <li class="global-data-li">
       <span
         >Total Market Cap: ${{
-          globalData.total_market_cap_usd | number: fractionSize
+          globalData.total_market_cap_usd | number: "1.0-2"
         }}</span
       >
     </li>
     <li class="global-data-li">
       <span
         >Total 24h Volume: ${{
-          globalData.total_24h_volume_usd | number: fractionSize
+          globalData.total_24h_volume_usd | number: "1.0-2"
         }}</span
       >
     </li>
@@ -18,26 +18,24 @@
       <span
         >Bitcoin Dominance:
         {{
-          globalData.bitcoin_percentage_of_market_cap | number: fractionSize
+          globalData.bitcoin_percentage_of_market_cap | number: "1.0-2"
         }}%</span
       >
     </li>
     <li class="global-data-li">
       <span
         >Active Currencies:
-        {{ globalData.active_currencies | number: fractionSize }}</span
+        {{ globalData.active_currencies | number: "1.0-2" }}</span
       >
     </li>
     <li class="global-data-li">
       <span
-        >Active Assets:
-        {{ globalData.active_assets | number: fractionSize }}</span
+        >Active Assets: {{ globalData.active_assets | number: "1.0-2" }}</span
       >
     </li>
     <li class="global-data-li">
       <span
-        >Active Markets:
-        {{ globalData.active_markets | number: fractionSize }}</span
+        >Active Markets: {{ globalData.active_markets | number: "1.0-2" }}</span
       >
     </li>
   </ul>

@@ -15,19 +15,19 @@
         <th>Symbol</th>
       </tr>
       <tr *ngFor="let cryptocurrency of cryptocurrencies">
-        <td>{{ cryptocurrency.rank | number: fractionSize }}</td>
+        <td>{{ cryptocurrency.rank | number: '1.0-2' }}</td>
         <td>
           <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
             {{ cryptocurrency.name }}
           </a>
         </td>
-        <td>${{ cryptocurrency.market_cap_usd | number: fractionSize }}</td>
-        <td>${{ cryptocurrency.price_usd | number: fractionSize }}</td>
+        <td>${{ cryptocurrency.market_cap_usd | number: '1.0-2' }}</td>
+        <td>${{ cryptocurrency.price_usd | number: '1.0-2' }}</td>
         <td>
-          ${{ cryptocurrency.last_24h_volume_usd | number: fractionSize }}
+          ${{ cryptocurrency.last_24h_volume_usd | number: '1.0-2' }}
         </td>
-        <td>{{ cryptocurrency.available_supply | number: fractionSize }}</td>
-        <td>{{ cryptocurrency.percent_change_24h | number: fractionSize }}%</td>
+        <td>{{ cryptocurrency.available_supply | number: '1.0-2' }}</td>
+        <td>{{ cryptocurrency.percent_change_24h | number: '1.0-2' }}%</td>
         <td>{{ cryptocurrency.symbol }}</td>
       </tr>
     </table>

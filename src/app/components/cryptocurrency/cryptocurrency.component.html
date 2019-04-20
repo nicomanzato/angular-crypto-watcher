@@ -2,7 +2,7 @@
   <table class="cryptocurrency-table">
     <tr>
       <th>Rank</th>
-      <td>{{ cryptocurrency.rank | number: fractionSize }}</td>
+      <td>{{ cryptocurrency.rank | number: "1.0-2" }}</td>
     </tr>
     <tr>
       <th>Name</th>
@@ -14,19 +14,19 @@
     </tr>
     <tr>
       <th>Price in USD</th>
-      <td>${{ cryptocurrency.price_usd | number: fractionSize }}</td>
+      <td>${{ cryptocurrency.price_usd | number: "1.0-2" }}</td>
     </tr>
     <tr>
       <th>24h Volume</th>
-      <td>${{ cryptocurrency.last_24h_volume_usd | number: fractionSize }}</td>
+      <td>${{ cryptocurrency.last_24h_volume_usd | number: "1.0-2" }}</td>
     </tr>
     <tr>
       <th>Market Cap</th>
-      <td>${{ cryptocurrency.market_cap_usd | number: fractionSize }}</td>
+      <td>${{ cryptocurrency.market_cap_usd | number: "1.0-2" }}</td>
     </tr>
     <tr>
       <th>Circulating Supply</th>
-      <td>{{ cryptocurrency.available_supply | number: fractionSize }}</td>
+      <td>{{ cryptocurrency.available_supply | number: "1.0-2" }}</td>
     </tr>
   </table>
 
