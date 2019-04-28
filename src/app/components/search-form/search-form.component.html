@@ -5,17 +5,10 @@
       resizeToFitContent
       type="text"
       placeholder="Search"
-      (change)="handleOnSubmit()"
+      (keydown)="handleOnChange()"
       [(ngModel)]="value"
     />
-    <button
-      mat-button
-      *ngIf="value"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="handleOnClear()"
-    >
+    <button mat-button *ngIf="hasSearched" matSuffix mat-icon-button aria-label="Clear" (click)="handleOnClear()">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

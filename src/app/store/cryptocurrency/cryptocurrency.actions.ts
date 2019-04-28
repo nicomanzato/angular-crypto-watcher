@@ -1,5 +1,5 @@
-import { Action } from '@ngrx/store';
-import { Cryptocurrency } from './../../model/cryptocurrency';
+import { Action } from '@ngrx/store'
+import { Cryptocurrency } from './../../model/cryptocurrency'
 
 export enum ActionTypes {
   REQUEST_CRYPTOCURRENCY_LIST_LOAD = '[Cryptocurrency] List Request Load',
@@ -12,39 +12,46 @@ export enum ActionTypes {
 }
 
 export class RequestCryptocurrencyListLoad implements Action {
-  readonly type = ActionTypes.REQUEST_CRYPTOCURRENCY_LIST_LOAD;
+  readonly type = ActionTypes.REQUEST_CRYPTOCURRENCY_LIST_LOAD
 }
 
 export class SuccessCryptocurrencyListLoad implements Action {
-  readonly type = ActionTypes.SUCCESS_CRYPTOCURRENCY_LIST_LOAD;
+  readonly type = ActionTypes.SUCCESS_CRYPTOCURRENCY_LIST_LOAD
 
   constructor(public payload: Cryptocurrency[]) {}
 }
 
 export class FailureCryptocurrencyListLoad implements Action {
-  readonly type = ActionTypes.FAILURE_CRYPTOCURRENCY_LIST_LOAD;
+  readonly type = ActionTypes.FAILURE_CRYPTOCURRENCY_LIST_LOAD
 }
 
 export class RequestSingleCryptocurrencyLoad implements Action {
-  readonly type = ActionTypes.REQUEST_SINGLE_CRYPTOCURRENCY_LOAD;
+  readonly type = ActionTypes.REQUEST_SINGLE_CRYPTOCURRENCY_LOAD
 
   constructor(public payload: string) {}
 }
 
 export class SuccessSingleCryptocurrencyLoad implements Action {
-  readonly type = ActionTypes.SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD;
+  readonly type = ActionTypes.SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD
 
   constructor(public payload: Cryptocurrency) {}
 }
 
 export class FailureSingleCryptocurrencyLoad implements Action {
-  readonly type = ActionTypes.FAILURE_SINGLE_CRYPTOCURRENCY_LOAD;
+  readonly type = ActionTypes.FAILURE_SINGLE_CRYPTOCURRENCY_LOAD
 }
 
 export class ChangeSearchKeyword implements Action {
-  readonly type = ActionTypes.CHANGE_SEARCH_KEYWORD;
+  readonly type = ActionTypes.CHANGE_SEARCH_KEYWORD
 
   constructor(public payload: string) {}
 }
 
-export type ActionsUnion = RequestCryptocurrencyListLoad | SuccessCryptocurrencyListLoad | FailureCryptocurrencyListLoad | RequestSingleCryptocurrencyLoad | SuccessSingleCryptocurrencyLoad | FailureSingleCryptocurrencyLoad | ChangeSearchKeyword;
+export type ActionsUnion =
+  | RequestCryptocurrencyListLoad
+  | SuccessCryptocurrencyListLoad
+  | FailureCryptocurrencyListLoad
+  | RequestSingleCryptocurrencyLoad
+  | SuccessSingleCryptocurrencyLoad
+  | FailureSingleCryptocurrencyLoad
+  | ChangeSearchKeyword

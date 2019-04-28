@@ -1,11 +1,14 @@
-<div class="app-container">
+<div class="app-container" *ngIf="contentDictionary$ | async as contentDictionary">
   <global-data
     [globalData]="globalData$ | async"
+    [contentDictionary]="contentDictionary$ | async"
     *ngIf="!(isLoadingGlobalData$ | async)"
   ></global-data>
   <header class="header-container">
     <div class="title-container">
-      <a [routerLink]="['/cryptocurrencies']"><h1>CryptoWatcher</h1></a>
+      <a [routerLink]="['/cryptocurrencies']"
+        ><h1>{{ contentDictionary.appName }}</h1></a
+      >
     </div>
     <app-search-form
       (onSubmit)="handleSearchFormOnSubmit($event)"

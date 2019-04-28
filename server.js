@@ -1,58 +1,62 @@
-var express = require("express");
-var path = require("path");
-var CoinMarketCap = require("node-coinmarketcap-rest-api");
+var express = require('express')
+var path = require('path')
+var CoinMarketCap = require('node-coinmarketcap-rest-api')
 
-var coinmarketcap = new CoinMarketCap();
-var app = express();
+var coinmarketcap = new CoinMarketCap()
+var app = express()
 
 //CORS middleware
 var allowCrossDomain = function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+  res.header('Access-Control-Allow-Headers', 'Content-Type')
 
-  next();
-};
+  next()
+}
 
 //app.configure(function() {
 //app.use(express.favicon());
 //app.use(express.logger("dev"));
-app.use(allowCrossDomain);
+app.use(allowCrossDomain)
 //app.use(express.bodyParser());
 //app.use(express.methodOverride());
 //app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 //app.use(express.static(path.join(__dirname, "public")));
 //});
+app.use(express.static(__dirname + '/dist/CryptoWatcher/'))
 
 /**
  * Root
  */
-app.get("/api/", function(req, res) {
-  res.set("Content-Type", "text/plain");
-  res.send("CoinMarketCap API is running...");
-});
+app.get('/api/', function(req, res) {
+  res.set('Content-Type', 'text/plain')
+  res.send('API is running...')
+})
 
-app.get("/api/cryptocurrency", function(req, res) {
+app.get('/api/content', function(req, res) {
+  res.sendFile(path.join(__dirname + '/src/content/dictionary.en.json'))
+})
+
+app.get('/api/cryptocurrency', function(req, res) {
   coinmarketcap.getAllTickers(coins => {
-    res.send(coins.getTop(100));
-  });
-});
+    res.send(coins.getTop(100))
+  })
+})
 
-app.get("/api/cryptocurrency/:symbol", function(req, res) {
+app.get('/api/cryptocurrency/:symbol', function(req, res) {
   coinmarketcap.getAllTickers(coins => {
-    res.send(coins.get(req.params.symbol));
-  });
-});
+    res.send(coins.get(req.params.symbol))
+  })
+})
 
-app.get("/api/global_data", function(req, res) {
+app.get('/api/global_data', function(req, res) {
   coinmarketcap.getGlobalData(data => {
-    res.send(data);
-  });
-});
+    res.send(data)
+  })
+})
 
-app.use(express.static(__dirname + "/dist/CryptoWatcher/"));
-app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname + "/dist/CryptoWatcher/index.html"));
-});
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/CryptoWatcher/index.html'))
+})
 
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080)

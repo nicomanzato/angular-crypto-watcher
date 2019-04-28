@@ -1,0 +1,19 @@
+{
+  "activeAssets": "Active Assets",
+  "activeCurrencies": "Active Currencies",
+  "activeMarkets": "Active Markets",
+  "appName": "CryptoWatcher",
+  "bitcoinDominance": "Bitcoin Dominance",
+  "change24h": "Change (24h)",
+  "circulatingSupply": "Circulating Supply",
+  "last24hVolume": "24h Volume",
+  "marketCap": "Market Cap",
+  "name": "Name",
+  "noResults": "No results available",
+  "price": "Price",
+  "search": "Search",
+  "shortNumber": "No.",
+  "symbol": "Symbol",
+  "total24hVolume": "Total 24h Volume",
+  "totalMarketCap": "Total Market Cap"
+}

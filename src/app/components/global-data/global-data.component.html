@@ -1,42 +1,25 @@
 <div class="global-data-container">
   <ul class="global-data-ul">
     <li class="global-data-li">
-      <span
-        >Total Market Cap: ${{
-          globalData.total_market_cap_usd | number: "1.0-2"
-        }}</span
-      >
+      <span>{{ contentDictionary.totalMarketCap }}: {{ globalData.total_market_cap_usd | currency }}</span>
+    </li>
+    <li class="global-data-li">
+      <span>{{ contentDictionary.total24hVolume }}: {{ globalData.total_24h_volume_usd | currency }}</span>
     </li>
     <li class="global-data-li">
       <span
-        >Total 24h Volume: ${{
-          globalData.total_24h_volume_usd | number: "1.0-2"
-        }}</span
+        >{{ contentDictionary.bitcoinDominance }}:
+        {{ globalData.bitcoin_percentage_of_market_cap | number: '1.0-2' }}%</span
       >
     </li>
     <li class="global-data-li">
-      <span
-        >Bitcoin Dominance:
-        {{
-          globalData.bitcoin_percentage_of_market_cap | number: "1.0-2"
-        }}%</span
-      >
+      <span>{{ contentDictionary.activeCurrencies }}: {{ globalData.active_currencies | number: '1.0-2' }}</span>
     </li>
     <li class="global-data-li">
-      <span
-        >Active Currencies:
-        {{ globalData.active_currencies | number: "1.0-2" }}</span
-      >
+      <span>{{ contentDictionary.activeAssets }}: {{ globalData.active_assets | number: '1.0-2' }}</span>
     </li>
     <li class="global-data-li">
-      <span
-        >Active Assets: {{ globalData.active_assets | number: "1.0-2" }}</span
-      >
-    </li>
-    <li class="global-data-li">
-      <span
-        >Active Markets: {{ globalData.active_markets | number: "1.0-2" }}</span
-      >
+      <span>{{ contentDictionary.activeMarkets }}: {{ globalData.active_markets | number: '1.0-2' }}</span>
     </li>
   </ul>
 </div>
