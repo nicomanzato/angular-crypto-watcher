@@ -19,7 +19,8 @@ import { cryptocurrencyReducer } from "./store/cryptocurrency/cryptocurrency.red
 import { environment } from "../environments/environment"; // Angular CLI environemnt
 import { globalDataReducer } from "./store/globalData/globalData.reducer";
 import { rootReducer } from "./store/app.state";
-import { CryptocurrencyPageComponent } from './pages/cryptocurrency-page/cryptocurrency-page.component';
+import { CryptocurrencyPageComponent } from "./pages/cryptocurrency-page/cryptocurrency-page.component";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CryptocurrencyPageComponent } from './pages/cryptocurrency-page/cryptoc
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
     }),
-    EffectsModule.forRoot([CryptocurrencyEffects, GlobalDataEffects])
+    EffectsModule.forRoot([CryptocurrencyEffects, GlobalDataEffects]),
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

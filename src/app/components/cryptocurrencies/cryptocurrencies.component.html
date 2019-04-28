@@ -3,38 +3,70 @@
     class="cryptocurrencies-table-scroller"
     *ngIf="cryptocurrencies.length > 0"
   >
-    <table class="cryptocurrencies-table">
-      <tr>
-        <th>Rank</th>
-        <th>Name</th>
-        <th>Market Cap</th>
-        <th>Price</th>
-        <th>24h Volume</th>
-        <th>Circulating Supply</th>
-        <th>Change(24h)</th>
-        <th>Symbol</th>
-      </tr>
-      <tr *ngFor="let cryptocurrency of cryptocurrencies">
-        <td>{{ cryptocurrency.rank | number: "1.0-2" }}</td>
-        <td>
-          <a [routerLink]="['/cryptocurrency', cryptocurrency.symbol]">
-            {{ cryptocurrency.name }}
+    <table mat-table [dataSource]="cryptocurrencies">
+      <ng-container matColumnDef="rank">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.rank }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">
+          <a [routerLink]="['/cryptocurrency', element.symbol]">
+            {{ element.name }}
           </a>
         </td>
-        <td>${{ cryptocurrency.market_cap_usd | number: "1.0-2" }}</td>
-        <td>${{ cryptocurrency.price_usd | number: "1.0-2" }}</td>
-        <td>${{ cryptocurrency.last_24h_volume_usd | number: "1.0-2" }}</td>
-        <td>{{ cryptocurrency.available_supply | number: "1.0-2" }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="market-cap">
+        <th mat-header-cell *matHeaderCellDef>Market Cap</th>
+        <td mat-cell *matCellDef="let element">
+          ${{ element.market_cap_usd | number: "1.0-2" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">
+          ${{ element.price_usd | number: "1.0-2" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_24h_volume_usd">
+        <th mat-header-cell *matHeaderCellDef>24h Volume</th>
+        <td mat-cell *matCellDef="let element">
+          ${{ element.last_24h_volume_usd | number: "1.0-2" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="available_supply">
+        <th mat-header-cell *matHeaderCellDef>Circulating Supply</th>
+        <td mat-cell *matCellDef="let element">
+          ${{ element.available_supply | number: "1.0-2" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="percent_change_24h">
+        <th mat-header-cell *matHeaderCellDef>Change (24h)</th>
         <td
+          mat-cell
+          *matCellDef="let element"
           [ngClass]="{
-            profit: cryptocurrency.percent_change_24h > 0,
-            loss: cryptocurrency.percent_change_24h < 0
+            profit: element.percent_change_24h > 0,
+            loss: element.percent_change_24h < 0
           }"
         >
-          {{ cryptocurrency.percent_change_24h | number: "1.0-2" }}%
+          {{ element.percent_change_24h | number: "1.0-2" }}%
         </td>
-        <td>{{ cryptocurrency.symbol }}</td>
-      </tr>
+      </ng-container>
+
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef>Symbol</th>
+        <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
   <div *ngIf="cryptocurrencies.length === 0">No results available</div>
