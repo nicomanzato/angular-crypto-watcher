@@ -1,34 +1,49 @@
-<div class="row cryptocurrency-container">
-  <table class="cryptocurrency-table">
-    <tr>
-      <th>Rank</th>
-      <td>{{ cryptocurrency.rank | number: "1.0-2" }}</td>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <td>{{ cryptocurrency.name }}</td>
-    </tr>
-    <tr>
-      <th>Symbol</th>
-      <td>{{ cryptocurrency.symbol }}</td>
-    </tr>
-    <tr>
-      <th>Price in USD</th>
-      <td>${{ cryptocurrency.price_usd | number: "1.0-2" }}</td>
-    </tr>
-    <tr>
-      <th>24h Volume</th>
-      <td>${{ cryptocurrency.last_24h_volume_usd | number: "1.0-2" }}</td>
-    </tr>
-    <tr>
-      <th>Market Cap</th>
-      <td>${{ cryptocurrency.market_cap_usd | number: "1.0-2" }}</td>
-    </tr>
-    <tr>
-      <th>Circulating Supply</th>
-      <td>{{ cryptocurrency.available_supply | number: "1.0-2" }}</td>
-    </tr>
-  </table>
+<div class="cryptocurrency-container">
+  <mat-grid-list cols="2" rowHeight="4:1">
+    <mat-grid-tile>
+      <h2>{{ cryptocurrency.name }} ({{ cryptocurrency.symbol }})</h2>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <h3>{{ cryptocurrency.price_usd | currency }} USD</h3>
+        <div
+          [ngClass]="{
+            profit: cryptocurrency.percent_change_24h > 0,
+            loss: cryptocurrency.percent_change_24h < 0
+          }"
+        >
+          ({{ cryptocurrency.percent_change_24h }}%)
+        </div>
+        <table
+          mat-table
+          [dataSource]="[cryptocurrency]"
+          class="cryptocurrency-table"
+        >
+          <ng-container matColumnDef="market-cap">
+            <th mat-header-cell *matHeaderCellDef>Market Cap</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.market_cap_usd | currency }}
+            </td>
+          </ng-container>
 
-  <button (click)="goBack()" class="button">Go back</button>
+          <ng-container matColumnDef="last_24h_volume_usd">
+            <th mat-header-cell *matHeaderCellDef>24h Volume</th>
+            <td mat-cell *matCellDef="let element">
+              ${{ element.last_24h_volume_usd | number: "1.0-2" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="available_supply">
+            <th mat-header-cell *matHeaderCellDef>Circulating Supply</th>
+            <td mat-cell *matCellDef="let element">
+              ${{ element.available_supply | number: "1.0-2" }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

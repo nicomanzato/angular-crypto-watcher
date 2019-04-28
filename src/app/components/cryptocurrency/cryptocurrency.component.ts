@@ -15,13 +15,14 @@ import { Cryptocurrency } from "./../../model/cryptocurrency";
 })
 export class CryptocurrencyComponent implements OnInit {
   @Input() cryptocurrency: Cryptocurrency;
-  @Output() onGoBack: EventEmitter<any> = new EventEmitter();
+
+  displayedColumns: string[] = [
+    "market-cap",
+    "last_24h_volume_usd",
+    "available_supply"
+  ];
 
   constructor() {}
 
   ngOnInit() {}
-
-  goBack(): void {
-    this.onGoBack.emit();
-  }
 }

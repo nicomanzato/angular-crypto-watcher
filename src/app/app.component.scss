@@ -4,6 +4,14 @@
   text-align: center;
 }
 
+a:link,
+a:visited {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: $text-primary-color;
+}
+
 .header-container {
   padding: $spacing-M;
   display: flex;

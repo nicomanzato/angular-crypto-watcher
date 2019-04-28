@@ -1,7 +1,7 @@
 @import "./../../../base";
 
 .cryptocurrencies-container {
-  width: 80vw;
+  width: $component-size-L;
 
   table {
     width: 100%;
@@ -31,12 +31,12 @@
     text-decoration-color: $text-secondary-color;
     text-decoration: underline;
   }
+}
 
-  .profit {
-    color: $text-profit-color;
-  }
+.profit {
+  color: $text-profit-color;
+}
 
-  .loss {
-    color: $text-loss-color;
-  }
+.loss {
+  color: $text-loss-color;
 }
