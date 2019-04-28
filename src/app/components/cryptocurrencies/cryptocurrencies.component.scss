@@ -1,39 +1,36 @@
 @import "./../../../base";
 
 .cryptocurrencies-container {
-  display: inline-block;
-}
+  width: $component-size-L;
 
-.cryptocurrencies-table {
-  width: 100%;
-}
+  table {
+    width: 100%;
+  }
 
-.cryptocurrencies-table-scroller {
-  overflow-x: scroll;
-  overflow-y: visible;
-  padding-bottom: $spacing-M;
-  width: 80vw;
-}
+  th {
+    color: $text-primary-color;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+  }
 
-.cryptocurrencies-table td,
-th {
-  border-bottom: 1px solid $border-primary-color;
-  text-align: center;
-  padding: $spacing-M;
-}
+  td {
+    padding-left: $spacing-M;
+  }
 
-.cryptocurrencies-table a:link,
-.cryptocurrencies-table a:visited {
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  color: $text-primary-color;
-}
+  a:link,
+  a:visited {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: $text-primary-color;
+  }
 
-.cryptocurrencies-table a:hover {
-  color: $text-secondary-color;
-  text-decoration-color: $text-secondary-color;
-  text-decoration: underline;
+  a:hover {
+    color: $text-secondary-color;
+    text-decoration-color: $text-secondary-color;
+    text-decoration: underline;
+  }
 }
 
 .profit {

@@ -1,14 +1,22 @@
 <div class="search-form-container">
-  <form [formGroup]="searchForm" (ngSubmit)="handleOnSubmit()">
+  <mat-form-field class="search-input">
     <input
+      matInput
+      resizeToFitContent
       type="text"
-      class="input"
-      formControlName="searchKeyword"
       placeholder="Search"
+      (change)="handleOnSubmit()"
+      [(ngModel)]="value"
     />
-    <button type="submit" [disabled]="!searchForm.valid" class="button">
-      Submit
+    <button
+      mat-button
+      *ngIf="value"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="handleOnClear()"
+    >
+      <mat-icon>close</mat-icon>
     </button>
-  </form>
-  <button class="button" (click)="handleOnClear()">Clear Search</button>
+  </mat-form-field>
 </div>

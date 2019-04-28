@@ -14,39 +14,23 @@ import { ChangeSearchKeyword } from "./../../store/cryptocurrency/cryptocurrency
   styleUrls: ["./search-form.component.scss"]
 })
 export class SearchFormComponent implements OnInit {
-  searchForm: FormGroup;
-  submitted: boolean;
+  value = "";
 
   @Output() onSubmit: EventEmitter<string> = new EventEmitter();
   @Output() onClear: EventEmitter<any> = new EventEmitter();
 
   constructor(private fb: FormBuilder) {}
 
-  ngOnInit() {
-    this.initializeSearchForm();
-  }
-
-  initializeSearchForm() {
-    this.searchForm = this.fb.group({
-      searchKeyword: new FormControl("", [
-        Validators.required,
-        Validators.maxLength(10)
-      ])
-    });
-  }
-
   getSearchKeyword() {
-    return this.searchForm.value.searchKeyword;
+    return this.value;
   }
 
   handleOnSubmit() {
     this.onSubmit.emit(this.getSearchKeyword());
-    this.submitted = true;
   }
 
   handleOnClear() {
-    this.onClear.emit();
-    this.submitted = false;
-    this.initializeSearchForm();
+    this.value = "";
+    this.onClear.emit(this.getSearchKeyword());
   }
 }

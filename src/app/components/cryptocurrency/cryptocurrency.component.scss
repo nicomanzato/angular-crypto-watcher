@@ -2,10 +2,11 @@
 
 .cryptocurrency-container {
   display: inline-block;
+  width: $component-size-L;
 }
 
 .cryptocurrency-table td,
-th {
+.cryptocurrency-table th {
   border-bottom: 1px solid $border-primary-color;
   text-align: center;
   padding: $spacing-M;
@@ -34,4 +35,12 @@ th {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.profit {
+  color: $text-profit-color;
+}
+
+.loss {
+  color: $text-loss-color;
 }

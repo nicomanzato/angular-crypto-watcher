@@ -1,4 +1,4 @@
-@import './../../../base';
+@import "./../../../base";
 
 .search-form-container {
   padding: $spacing-M;
@@ -6,21 +6,9 @@
   background-color: $background-secondary-color;
   display: flex;
   align-items: center;
-}
+  width: $component-size-S;
 
-.button {
-  padding: $spacing-XS;
-  margin: $spacing-XS;
-  border-radius: $spacing-XS;
-  background-color: $background-primary-color;
-  color: $text-tertiary-color;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.input {
-  border-color: $border-terciary-color;
-  border-width: 1px;
+  .search-input {
+    width: 100%;
+  }
 }

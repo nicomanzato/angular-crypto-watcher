@@ -4,7 +4,9 @@
     *ngIf="!(isLoadingGlobalData$ | async)"
   ></global-data>
   <header class="header-container">
-    <div class="title-container"><h1>CryptoWatcher</h1></div>
+    <div class="title-container">
+      <a [routerLink]="['/cryptocurrencies']"><h1>CryptoWatcher</h1></a>
+    </div>
     <app-search-form
       (onSubmit)="handleSearchFormOnSubmit($event)"
       (onClear)="handleSearchFormOnClear()"

@@ -1,7 +1,15 @@
-@import './../base';
+@import "./../base";
 
 .app-container {
   text-align: center;
+}
+
+a:link,
+a:visited {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  color: $text-primary-color;
 }
 
 .header-container {
