@@ -7,7 +7,7 @@ export const environment = {
     ROOT: 'http://localhost:',
     PORT: 8080,
   },
-}
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

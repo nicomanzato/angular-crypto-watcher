@@ -1,24 +1,24 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CryptocurrencyPageComponent } from './cryptocurrency-page.component'
+import { CryptocurrencyPageComponent } from './cryptocurrency-page.component';
 
 describe('CryptocurrencyPageComponent', () => {
-  let component: CryptocurrencyPageComponent
-  let fixture: ComponentFixture<CryptocurrencyPageComponent>
+  let component: CryptocurrencyPageComponent;
+  let fixture: ComponentFixture<CryptocurrencyPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [CryptocurrencyPageComponent],
-    }).compileComponents()
-  }))
+    }).compileComponents();
+  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CryptocurrencyPageComponent)
-    component = fixture.componentInstance
-    fixture.detectChanges()
-  })
+    fixture = TestBed.createComponent(CryptocurrencyPageComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
-    expect(component).toBeTruthy()
-  })
-})
+    expect(component).toBeTruthy();
+  });
+});

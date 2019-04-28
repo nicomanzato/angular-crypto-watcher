@@ -1,12 +1,12 @@
-import { TestBed } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing';
 
-import { ContentService } from './content.service'
+import { ContentService } from './content.service';
 
 describe('ContentService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}))
+  beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ContentService = TestBed.get(ContentService)
-    expect(service).toBeTruthy()
-  })
-})
+    const service: ContentService = TestBed.get(ContentService);
+    expect(service).toBeTruthy();
+  });
+});

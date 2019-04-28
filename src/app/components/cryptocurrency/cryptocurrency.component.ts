@@ -1,13 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
-import { Location } from '@angular/common'
-import { ActivatedRoute } from '@angular/router'
-import { Store, select } from '@ngrx/store'
-import { Observable } from 'rxjs'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import { RequestSingleCryptocurrencyLoad } from './../../store/cryptocurrency/cryptocurrency.actions'
+import { RequestSingleCryptocurrencyLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
 
-import { Cryptocurrency } from './../../model/cryptocurrency'
-import { ContentDictionary } from './../../model/contentDictionary'
+import { Cryptocurrency } from './../../model/cryptocurrency';
+import { ContentDictionary } from './../../model/contentDictionary';
 
 @Component({
   selector: 'cryptocurrency',
@@ -15,10 +15,10 @@ import { ContentDictionary } from './../../model/contentDictionary'
   styleUrls: ['./cryptocurrency.component.scss'],
 })
 export class CryptocurrencyComponent implements OnInit {
-  @Input() cryptocurrency: Cryptocurrency
-  @Input() contentDictionary: ContentDictionary
+  @Input() cryptocurrency: Cryptocurrency;
+  @Input() contentDictionary: ContentDictionary;
 
-  displayedColumns: string[] = ['market-cap', 'last_24h_volume_usd', 'available_supply']
+  displayedColumns: string[] = ['market-cap', 'last_24h_volume_usd', 'available_supply'];
 
   constructor() {}
 

@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core'
-import { Observable } from 'rxjs'
-import { Store, select } from '@ngrx/store'
-import { MatTableModule } from '@angular/material/table'
+import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { MatTableModule } from '@angular/material/table';
 
-import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions'
-import { CryptocurrencyState } from './../../store/cryptocurrency/cryptocurrency.reducer'
-import * as fromRoot from './../../store/cryptocurrency/cryptocurrency.selector'
+import { RequestCryptocurrencyListLoad } from './../../store/cryptocurrency/cryptocurrency.actions';
+import { CryptocurrencyState } from './../../store/cryptocurrency/cryptocurrency.reducer';
+import * as fromRoot from './../../store/cryptocurrency/cryptocurrency.selector';
 
-import { Cryptocurrency } from './../../model/cryptocurrency'
-import { ContentDictionary } from './../../model/contentDictionary'
+import { Cryptocurrency } from './../../model/cryptocurrency';
+import { ContentDictionary } from './../../model/contentDictionary';
 
 @Component({
   selector: 'cryptocurrencies',
@@ -16,8 +16,8 @@ import { ContentDictionary } from './../../model/contentDictionary'
   styleUrls: ['./cryptocurrencies.component.scss'],
 })
 export class CryptocurrenciesComponent implements OnInit {
-  @Input() cryptocurrencies: Cryptocurrency[]
-  @Input() contentDictionary: ContentDictionary
+  @Input() cryptocurrencies: Cryptocurrency[];
+  @Input() contentDictionary: ContentDictionary;
 
   displayedColumns: string[] = [
     'rank',
@@ -28,7 +28,7 @@ export class CryptocurrenciesComponent implements OnInit {
     'available_supply',
     'percent_change_24h',
     'symbol',
-  ]
+  ];
 
   constructor() {}
 

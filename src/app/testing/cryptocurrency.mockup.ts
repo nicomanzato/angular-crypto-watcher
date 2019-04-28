@@ -1,5 +1,5 @@
-import { Cryptocurrency } from './../model/cryptocurrency'
-import { CryptocurrencyState } from './../store/cryptocurrency/cryptocurrency.reducer'
+import { Cryptocurrency } from './../model/cryptocurrency';
+import { CryptocurrencyState } from './../store/cryptocurrency/cryptocurrency.reducer';
 
 export const cryptocurrencyMockUp: Cryptocurrency = new Cryptocurrency(
   'bitcoin',
@@ -16,7 +16,7 @@ export const cryptocurrencyMockUp: Cryptocurrency = new Cryptocurrency(
   0.22,
   1.23,
   -2.84
-)
+);
 
 export const cryptocurrencyMockUp2: Cryptocurrency = new Cryptocurrency(
   'ethereum',
@@ -33,9 +33,9 @@ export const cryptocurrencyMockUp2: Cryptocurrency = new Cryptocurrency(
   -0.24,
   2.56,
   -7.58
-)
+);
 
-export const cryptocurrencyListMockUp: Cryptocurrency[] = [cryptocurrencyMockUp, cryptocurrencyMockUp2]
+export const cryptocurrencyListMockUp: Cryptocurrency[] = [cryptocurrencyMockUp, cryptocurrencyMockUp2];
 
 export const cryptocurrencyStateMockUp: CryptocurrencyState = {
   cryptocurrencyList: cryptocurrencyListMockUp,
@@ -46,4 +46,4 @@ export const cryptocurrencyStateMockUp: CryptocurrencyState = {
   isLoadingSingleCryptocurrency: false,
 
   searchKeyword: '',
-}
+};

@@ -1,18 +1,18 @@
-import { ActionTypes, ActionsUnion } from './cryptocurrency.actions'
-import { Cryptocurrency } from './../../model/cryptocurrency'
+import { ActionTypes, ActionsUnion } from './cryptocurrency.actions';
+import { Cryptocurrency } from './../../model/cryptocurrency';
 
 export interface CryptocurrencyState {
-  cryptocurrencyList: Cryptocurrency[]
-  isLoadingCryptocurrencyList: boolean
+  cryptocurrencyList: Cryptocurrency[];
+  isLoadingCryptocurrencyList: boolean;
 
-  singleCryptocurrency: Cryptocurrency
-  singleCryptocurrencySymbol: string
-  isLoadingSingleCryptocurrency: boolean
+  singleCryptocurrency: Cryptocurrency;
+  singleCryptocurrencySymbol: string;
+  isLoadingSingleCryptocurrency: boolean;
 
-  searchKeyword: string
+  searchKeyword: string;
 }
 
-export const mockCryptocurrency = new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+export const mockCryptocurrency = new Cryptocurrency('', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 export const initialState: CryptocurrencyState = {
   cryptocurrencyList: [],
@@ -23,7 +23,7 @@ export const initialState: CryptocurrencyState = {
   isLoadingSingleCryptocurrency: false,
 
   searchKeyword: '',
-}
+};
 
 export function cryptocurrencyReducer(state = initialState, action: ActionsUnion): CryptocurrencyState {
   switch (action.type) {
@@ -31,7 +31,7 @@ export function cryptocurrencyReducer(state = initialState, action: ActionsUnion
       return {
         ...state,
         isLoadingCryptocurrencyList: true,
-      }
+      };
     }
 
     case ActionTypes.SUCCESS_CRYPTOCURRENCY_LIST_LOAD: {
@@ -39,14 +39,14 @@ export function cryptocurrencyReducer(state = initialState, action: ActionsUnion
         ...state,
         isLoadingCryptocurrencyList: false,
         cryptocurrencyList: action.payload,
-      }
+      };
     }
 
     case ActionTypes.FAILURE_CRYPTOCURRENCY_LIST_LOAD: {
       return {
         ...state,
         isLoadingCryptocurrencyList: false,
-      }
+      };
     }
 
     case ActionTypes.REQUEST_SINGLE_CRYPTOCURRENCY_LOAD: {
@@ -54,7 +54,7 @@ export function cryptocurrencyReducer(state = initialState, action: ActionsUnion
         ...state,
         isLoadingSingleCryptocurrency: true,
         singleCryptocurrencySymbol: action.payload,
-      }
+      };
     }
 
     case ActionTypes.SUCCESS_SINGLE_CRYPTOCURRENCY_LOAD: {
@@ -62,18 +62,18 @@ export function cryptocurrencyReducer(state = initialState, action: ActionsUnion
         ...state,
         isLoadingSingleCryptocurrency: false,
         singleCryptocurrency: action.payload,
-      }
+      };
     }
 
     case ActionTypes.CHANGE_SEARCH_KEYWORD: {
       return {
         ...state,
         searchKeyword: action.payload,
-      }
+      };
     }
 
     default: {
-      return state
+      return state;
     }
   }
 }

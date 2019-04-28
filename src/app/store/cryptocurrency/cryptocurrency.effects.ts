@@ -1,19 +1,19 @@
-import { Injectable } from '@angular/core'
-import { Actions, Effect, ofType } from '@ngrx/effects'
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import {
   ActionTypes,
   SuccessCryptocurrencyListLoad,
   FailureCryptocurrencyListLoad,
   SuccessSingleCryptocurrencyLoad,
   FailureSingleCryptocurrencyLoad,
-} from './cryptocurrency.actions'
-import { EMPTY, of, Observable } from 'rxjs'
-import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators'
-import { CryptocurrencyService } from './../../services/cryptocurrency/cryptocurrency.service'
-import { CryptocurrencyState } from './cryptocurrency.reducer'
-import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector'
-import { Store } from '@ngrx/store'
-import { AppState } from './../app.state'
+} from './cryptocurrency.actions';
+import { EMPTY, of, Observable } from 'rxjs';
+import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
+import { CryptocurrencyService } from './../../services/cryptocurrency/cryptocurrency.service';
+import { CryptocurrencyState } from './cryptocurrency.reducer';
+import { selectSingleCryptocurrencySymbol } from './cryptocurrency.selector';
+import { Store } from '@ngrx/store';
+import { AppState } from './../app.state';
 
 @Injectable()
 export class CryptocurrencyEffects {
@@ -26,7 +26,7 @@ export class CryptocurrencyEffects {
         catchError(() => of(new FailureCryptocurrencyListLoad()))
       )
     )
-  )
+  );
 
   @Effect()
   loadSingleCryptocurrency$ = this.actions$.pipe(
@@ -38,13 +38,13 @@ export class CryptocurrencyEffects {
         catchError(() => of(new FailureSingleCryptocurrencyLoad()))
       )
     )
-  )
+  );
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error)
-      return of(result as T)
-    }
+      console.error(error);
+      return of(result as T);
+    };
   }
 
   constructor(

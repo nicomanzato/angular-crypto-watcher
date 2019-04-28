@@ -4,4 +4,4 @@ export const environment = {
     ROOT: 'https://angular-cryptowatcher.herokuapp.com',
     PORT: '',
   },
-}
+};

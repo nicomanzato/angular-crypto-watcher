@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core'
-import { GlobalData } from './../../model/globalData'
-import { ContentDictionary } from './../../model/contentDictionary'
+import { Component, OnInit, Input } from '@angular/core';
+import { GlobalData } from './../../model/globalData';
+import { ContentDictionary } from './../../model/contentDictionary';
 
 @Component({
   selector: 'global-data',
@@ -8,8 +8,8 @@ import { ContentDictionary } from './../../model/contentDictionary'
   styleUrls: ['./global-data.component.scss'],
 })
 export class GlobalDataComponent implements OnInit {
-  @Input() globalData: GlobalData
-  @Input() contentDictionary: ContentDictionary
+  @Input() globalData: GlobalData;
+  @Input() contentDictionary: ContentDictionary;
 
   constructor() {}
 

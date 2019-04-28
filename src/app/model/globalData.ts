@@ -1,13 +1,13 @@
-import { Adapter } from './../adapter'
-import { Injectable } from '@angular/core'
+import { Adapter } from './../adapter';
+import { Injectable } from '@angular/core';
 
 export class GlobalData {
-  public total_market_cap_usd: number
-  public total_24h_volume_usd: number
-  public bitcoin_percentage_of_market_cap: number
-  public active_currencies: number
-  public active_assets: number
-  public active_markets: number
+  public total_market_cap_usd: number;
+  public total_24h_volume_usd: number;
+  public bitcoin_percentage_of_market_cap: number;
+  public active_currencies: number;
+  public active_assets: number;
+  public active_markets: number;
 
   constructor(
     total_market_cap_usd: number,
@@ -17,12 +17,12 @@ export class GlobalData {
     active_assets: number,
     active_markets: number
   ) {
-    this.total_market_cap_usd = total_market_cap_usd
-    this.total_24h_volume_usd = total_24h_volume_usd
-    this.bitcoin_percentage_of_market_cap = bitcoin_percentage_of_market_cap
-    this.active_currencies = active_currencies
-    this.active_assets = active_assets
-    this.active_markets = active_markets
+    this.total_market_cap_usd = total_market_cap_usd;
+    this.total_24h_volume_usd = total_24h_volume_usd;
+    this.bitcoin_percentage_of_market_cap = bitcoin_percentage_of_market_cap;
+    this.active_currencies = active_currencies;
+    this.active_assets = active_assets;
+    this.active_markets = active_markets;
   }
 }
 
@@ -38,6 +38,6 @@ export class GlobalDataAdapter implements Adapter<GlobalData> {
       globalDataFromServer.active_currencies,
       globalDataFromServer.active_assets,
       globalDataFromServer.active_markets
-    )
+    );
   }
 }

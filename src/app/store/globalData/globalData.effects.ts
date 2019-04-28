@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { Actions, Effect, ofType } from '@ngrx/effects'
-import { ActionTypes, SuccessGlobalDataLoad, FailureGlobalDataLoad } from './globalData.actions'
-import { EMPTY, of } from 'rxjs'
-import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators'
-import { GlobalDataService } from './../../services/globalData/global-data.service'
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { ActionTypes, SuccessGlobalDataLoad, FailureGlobalDataLoad } from './globalData.actions';
+import { EMPTY, of } from 'rxjs';
+import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
+import { GlobalDataService } from './../../services/globalData/global-data.service';
 
 @Injectable()
 export class GlobalDataEffects {
@@ -16,7 +16,7 @@ export class GlobalDataEffects {
         catchError(() => of(new FailureGlobalDataLoad()))
       )
     )
-  )
+  );
 
   constructor(private actions$: Actions, private globalDataService: GlobalDataService) {}
 }

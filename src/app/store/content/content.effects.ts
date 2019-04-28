@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { Actions, Effect, ofType } from '@ngrx/effects'
-import { ActionTypes, SuccessContentDictionaryLoad, FailureContentDictionaryLoad } from './content.actions'
-import { EMPTY, of } from 'rxjs'
-import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators'
-import { ContentService } from './../../services/content/content.service'
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { ActionTypes, SuccessContentDictionaryLoad, FailureContentDictionaryLoad } from './content.actions';
+import { EMPTY, of } from 'rxjs';
+import { map, mergeMap, withLatestFrom, catchError } from 'rxjs/operators';
+import { ContentService } from './../../services/content/content.service';
 
 @Injectable()
 export class ContentEffects {
@@ -16,7 +16,7 @@ export class ContentEffects {
         catchError(() => of(new FailureContentDictionaryLoad()))
       )
     )
-  )
+  );
 
   constructor(private actions$: Actions, private contentService: ContentService) {}
 }
