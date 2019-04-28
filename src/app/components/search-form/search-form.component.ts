@@ -13,13 +13,13 @@ import { ChangeSearchKeyword } from "./../../store/cryptocurrency/cryptocurrency
   templateUrl: "./search-form.component.html",
   styleUrls: ["./search-form.component.scss"]
 })
-export class SearchFormComponent implements OnInit {
+export class SearchFormComponent {
   value = "";
 
   @Output() onSubmit: EventEmitter<string> = new EventEmitter();
   @Output() onClear: EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   getSearchKeyword() {
     return this.value;
