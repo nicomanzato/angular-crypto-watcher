@@ -2,6 +2,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CryptocurrenciesComponent } from './components/cryptocurrencies/cryptocurrencies.component';
+import { ActivityIndicatorComponent } from './components/activity-indicator/activity-indicator.component';
 import { CryptocurrenciesPageComponent } from './pages/cryptocurrencies-page/cryptocurrencies-page.component';
 import { CryptocurrencyComponent } from './components/cryptocurrency/cryptocurrency.component';
 import { CryptocurrencyEffects } from './store/cryptocurrency/cryptocurrency.effects';
@@ -42,6 +43,7 @@ import {
     SearchFormComponent,
     CryptocurrenciesPageComponent,
     CryptocurrencyPageComponent,
+    ActivityIndicatorComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+@import './../../../theme';
+
+.activity-indicator-container {
+  .first-bar {
+    fill: $blueDodger;
+  }
+
+  .second-bar {
+    fill: $turquoiseBright;
+  }
+
+  .third-bar {
+    fill: $aquamarine;
+  }
+}

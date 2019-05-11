@@ -30,7 +30,15 @@
       width: 100%;
     }
 
-    .cryptocurrency-price {
+    .cryptocurrency-price-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      .cryptocurrency-price {
+        padding: 0 $spacing-L 0 0;
+      }
     }
 
     .cryptocurrency-secondary-details-container {
@@ -44,13 +52,21 @@
       }
     }
 
-    .card {
+    .card-container {
       padding: $spacing-M;
       box-shadow: 0 $spacing-XS $spacing-S 0 rgba(0, 0, 0, 0.2);
       padding: $spacing-M;
       margin: $spacing-M $spacing-M 0 0;
       text-align: center;
       background-color: $white;
+
+      .card-title {
+        color: $greyNevada;
+      }
+
+      .card-content {
+        padding: $spacing-L 0 0 0;
+      }
     }
   }
 

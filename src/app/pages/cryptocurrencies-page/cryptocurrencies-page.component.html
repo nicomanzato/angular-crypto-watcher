@@ -5,5 +5,5 @@
 >
 </cryptocurrencies>
 <div *ngIf="isLoadingCryptocurrencyList$ | async" class="cryptocurrencies-container">
-  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <app-activity-indicator></app-activity-indicator>
 </div>

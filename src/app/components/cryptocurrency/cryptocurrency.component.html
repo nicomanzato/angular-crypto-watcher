@@ -3,30 +3,32 @@
     <h2>{{ cryptocurrency.name }} ({{ cryptocurrency.symbol }})</h2>
   </div>
   <div class="cryptocurrency-detail-container">
-    <h3 class="cryptocurrency-price">{{ cryptocurrency.price_usd | currency }} USD</h3>
-    <div
-      [ngClass]="{
-        profit: cryptocurrency.percent_change_24h > 0,
-        loss: cryptocurrency.percent_change_24h < 0
-      }"
-    >
-      ({{ cryptocurrency.percent_change_24h }}%)
+    <div class="cryptocurrency-price-container">
+      <h3 class="cryptocurrency-price">{{ cryptocurrency.price_usd | currency }} USD</h3>
+      <div
+        [ngClass]="{
+          profit: cryptocurrency.percent_change_24h > 0,
+          loss: cryptocurrency.percent_change_24h < 0
+        }"
+      >
+        ({{ cryptocurrency.percent_change_24h }}%)
+      </div>
     </div>
 
     <div class="cryptocurrency-secondary-details-container">
-      <div class="card">
-        <div>{{ contentDictionary.marketCap }}</div>
-        <div>{{ cryptocurrency.market_cap_usd | currency }}</div>
+      <div class="card-container">
+        <div class="card-title">{{ contentDictionary.marketCap }}</div>
+        <div class="card-content">{{ cryptocurrency.market_cap_usd | currency }}</div>
       </div>
 
-      <div class="card">
-        <div>{{ contentDictionary.last24hVolume }}</div>
-        <div>{{ cryptocurrency.last_24h_volume_usd | currency }}</div>
+      <div class="card-container">
+        <div class="card-title">{{ contentDictionary.last24hVolume }}</div>
+        <div class="card-content">{{ cryptocurrency.last_24h_volume_usd | currency }}</div>
       </div>
 
-      <div class="card">
-        <div>{{ contentDictionary.circulatingSupply }}</div>
-        <div>{{ cryptocurrency.available_supply | number: '1.0-2' }}</div>
+      <div class="card-container">
+        <div class="card-title">{{ contentDictionary.circulatingSupply }}</div>
+        <div class="card-content">{{ cryptocurrency.available_supply | number: '1.0-2' }}</div>
       </div>
     </div>
   </div>
