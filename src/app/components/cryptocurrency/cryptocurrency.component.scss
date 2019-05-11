@@ -45,7 +45,6 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      padding: $spacing-M 0 0 0;
 
       @media screen and (max-width: $tablet-breakpoint) {
         flex-direction: column;
@@ -53,6 +52,9 @@
     }
 
     .card-container {
+      display: flex;
+      flex-direction: column;
+      border-radius: $spacing-XS;
       padding: $spacing-M;
       box-shadow: 0 $spacing-XS $spacing-S 0 rgba(0, 0, 0, 0.2);
       padding: $spacing-M;
@@ -61,7 +63,7 @@
       background-color: $white;
 
       .card-title {
-        color: $greyNevada;
+        color: $text-quaternaty-color;
       }
 
       .card-content {
