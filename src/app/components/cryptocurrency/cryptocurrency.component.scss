@@ -1,46 +1,64 @@
 @import './../../../theme';
 
 .cryptocurrency-container {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
   width: $component-size-L;
-}
 
-.cryptocurrency-table td,
-.cryptocurrency-table th {
-  border-bottom: 1px solid $border-primary-color;
-  text-align: center;
-  padding: $spacing-M;
-}
+  @media screen and (max-width: $smartphone-breakpoint) {
+    flex-direction: column;
+  }
 
-.cryptocurrency-table a:link,
-.cryptocurrency-table a:visited {
-  text-decoration: none;
-  display: inline-block;
-  color: $text-primary-color;
-}
+  .cryptocurrency-title-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.cryptocurrency-table a:hover {
-  color: $text-secondary-color;
-  text-decoration-color: $text-secondary-color;
-  text-decoration: underline;
-}
+    @media screen and (max-width: $tablet-breakpoint) {
+      width: 100%;
+    }
+  }
 
-.button {
-  padding: $spacing-S;
-  margin: $spacing-XS;
-  border-radius: $spacing-XS;
-  background-color: $background-primary-color;
-  color: $text-tertiary-color;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+  .cryptocurrency-detail-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-.profit {
-  color: $text-profit-color;
-}
+    @media screen and (max-width: $tablet-breakpoint) {
+      width: 100%;
+    }
 
-.loss {
-  color: $text-loss-color;
+    .cryptocurrency-price {
+    }
+
+    .cryptocurrency-secondary-details-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: $spacing-M 0 0 0;
+
+      @media screen and (max-width: $tablet-breakpoint) {
+        flex-direction: column;
+      }
+    }
+
+    .card {
+      padding: $spacing-M;
+      box-shadow: 0 $spacing-XS $spacing-S 0 rgba(0, 0, 0, 0.2);
+      padding: $spacing-M;
+      margin: $spacing-M $spacing-M 0 0;
+      text-align: center;
+      background-color: $white;
+    }
+  }
+
+  .profit {
+    color: $text-profit-color;
+  }
+
+  .loss {
+    color: $text-loss-color;
+  }
 }

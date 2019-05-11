@@ -1,49 +1,33 @@
 <div class="cryptocurrency-container">
-  <mat-grid-list cols="2" rowHeight="4:1">
-    <mat-grid-tile>
-      <h2>{{ cryptocurrency.name }} ({{ cryptocurrency.symbol }})</h2>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <div>
-        <h3>{{ cryptocurrency.price_usd | currency }} USD</h3>
-        <div
-          [ngClass]="{
-            profit: cryptocurrency.percent_change_24h > 0,
-            loss: cryptocurrency.percent_change_24h < 0
-          }"
-        >
-          ({{ cryptocurrency.percent_change_24h }}%)
-        </div>
-        <table mat-table [dataSource]="[cryptocurrency]" class="cryptocurrency-table">
-          <ng-container matColumnDef="market-cap">
-            <th mat-header-cell *matHeaderCellDef>
-              {{ contentDictionary.marketCap }}
-            </th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.market_cap_usd | currency }}
-            </td>
-          </ng-container>
+  <div class="cryptocurrency-title-container">
+    <h2>{{ cryptocurrency.name }} ({{ cryptocurrency.symbol }})</h2>
+  </div>
+  <div class="cryptocurrency-detail-container">
+    <h3 class="cryptocurrency-price">{{ cryptocurrency.price_usd | currency }} USD</h3>
+    <div
+      [ngClass]="{
+        profit: cryptocurrency.percent_change_24h > 0,
+        loss: cryptocurrency.percent_change_24h < 0
+      }"
+    >
+      ({{ cryptocurrency.percent_change_24h }}%)
+    </div>
 
-          <ng-container matColumnDef="last_24h_volume_usd">
-            <th mat-header-cell *matHeaderCellDef>
-              {{ contentDictionary.last24hVolume }}
-            </th>
-            <td mat-cell *matCellDef="let element">${{ element.last_24h_volume_usd | number: '1.0-2' }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="available_supply">
-            <th mat-header-cell *matHeaderCellDef>
-              {{ contentDictionary.circulatingSupply }}
-            </th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.available_supply | number: '1.0-2' }}
-            </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
+    <div class="cryptocurrency-secondary-details-container">
+      <div class="card">
+        <div>{{ contentDictionary.marketCap }}</div>
+        <div>{{ cryptocurrency.market_cap_usd | currency }}</div>
       </div>
-    </mat-grid-tile>
-  </mat-grid-list>
+
+      <div class="card">
+        <div>{{ contentDictionary.last24hVolume }}</div>
+        <div>{{ cryptocurrency.last_24h_volume_usd | currency }}</div>
+      </div>
+
+      <div class="card">
+        <div>{{ contentDictionary.circulatingSupply }}</div>
+        <div>{{ cryptocurrency.available_supply | number: '1.0-2' }}</div>
+      </div>
+    </div>
+  </div>
 </div>

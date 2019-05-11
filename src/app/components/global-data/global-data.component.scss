@@ -3,27 +3,17 @@
 .global-data-container {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   background-color: $background-secondary-color;
 }
 
-.global-data-ul {
-  list-style-type: none;
-  margin: auto;
-  padding: 0;
-  overflow: hidden;
-}
-@media (min-width: 768px) {
-  .global-data-ul {
-    display: flex;
-    justify-content: center;
+@media screen and (max-width: $smartphone-breakpoint) {
+  .global-data-container {
+    flex-direction: column;
   }
 }
 
-.global-data-li {
-  float: left;
-}
-
-.global-data-li span {
+.global-data span {
   display: block;
   color: $text-primary-color;
   text-align: center;

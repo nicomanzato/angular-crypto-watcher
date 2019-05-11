@@ -31,11 +31,16 @@ $spacing-XL: 30px;
 $spacing-XXL: 45px;
 
 // Font sizes
-$font-size-smartphone: 8px;
-$font-size-tablet: 11px;
-$font-size-small-desktop: 12px;
+$font-size-smartphone: 12px;
+$font-size-tablet: 16px;
+$font-size-small-desktop: 16px;
 $font-size-large-desktop: 16px;
 
 // Component Sizes
 $component-size-S: 15vw;
 $component-size-L: 80vw;
+
+// Breakpoints
+
+$smartphone-breakpoint: 640px;
+$tablet-breakpoint: 1024px;

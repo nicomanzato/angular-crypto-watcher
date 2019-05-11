@@ -30,6 +30,10 @@ export class SearchFormComponent {
     if (this.getSearchKeyword().length > 3) {
       this.onSubmit.emit(this.getSearchKeyword());
       this.hasSearched = true;
+    } else {
+      if (this.getSearchKeyword().length === 0) {
+        this.handleOnClear();
+      }
     }
   }
 
