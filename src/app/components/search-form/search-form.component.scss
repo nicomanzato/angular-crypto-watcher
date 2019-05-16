@@ -8,6 +8,10 @@
   align-items: center;
   width: $component-size-S;
 
+  @media screen and (max-width: $tablet-breakpoint) {
+    width: 100%;
+  }
+
   .search-input {
     width: 100%;
   }
