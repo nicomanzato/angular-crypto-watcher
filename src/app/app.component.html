@@ -15,5 +15,7 @@
       (onClear)="handleSearchFormOnClear()"
     ></app-search-form>
   </header>
-  <div class="router-container"><router-outlet></router-outlet></div>
+  <div class="router-container" [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet" class="router"></router-outlet>
+  </div>
 </div>

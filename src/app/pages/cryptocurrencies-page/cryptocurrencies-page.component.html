@@ -4,6 +4,6 @@
   *ngIf="!(isLoadingCryptocurrencyList$ | async)"
 >
 </cryptocurrencies>
-<div *ngIf="isLoadingCryptocurrencyList$ | async" class="cryptocurrencies-container">
+<div *ngIf="false && isLoadingCryptocurrencyList$ | async" class="cryptocurrencies-container">
   <app-activity-indicator></app-activity-indicator>
 </div>

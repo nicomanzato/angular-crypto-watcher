@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: row;
   width: $component-size-L;
+  background-color: white;
+  padding: $spacing-L;
 
   @media screen and (max-width: $smartphone-breakpoint) {
     flex-direction: column;

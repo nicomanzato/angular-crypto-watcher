@@ -1,4 +1,4 @@
-<div class="cryptocurrencies-container" style="overflow-x:auto;">
+<div @fade class="cryptocurrencies-container" style="overflow-x:auto;">
   <div class="cryptocurrencies-table-scroller" *ngIf="cryptocurrencies.length > 0">
     <table mat-table [dataSource]="cryptocurrencies">
       <ng-container matColumnDef="rank">

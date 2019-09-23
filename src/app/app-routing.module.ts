@@ -5,8 +5,8 @@ import { CryptocurrenciesPageComponent } from './pages/cryptocurrencies-page/cry
 
 const routes: Routes = [
   { path: '', redirectTo: '/cryptocurrencies', pathMatch: 'full' },
-  { path: 'cryptocurrencies', component: CryptocurrenciesPageComponent },
-  { path: 'cryptocurrency/:id', component: CryptocurrencyPageComponent },
+  { path: 'cryptocurrencies', component: CryptocurrenciesPageComponent, data: { animation: 'CryptocurrenciesPage' } },
+  { path: 'cryptocurrency/:id', component: CryptocurrencyPageComponent, data: { animation: 'CryptocurrencyPage' } },
 ];
 
 @NgModule({

@@ -10,10 +10,13 @@ import * as fromRoot from './../../store/cryptocurrency/cryptocurrency.selector'
 import { Cryptocurrency } from './../../model/cryptocurrency';
 import { ContentDictionary } from './../../model/contentDictionary';
 
+import { animations } from './cryptocurrencies.animations';
+
 @Component({
   selector: 'cryptocurrencies',
   templateUrl: './cryptocurrencies.component.html',
   styleUrls: ['./cryptocurrencies.component.scss'],
+  animations: animations,
 })
 export class CryptocurrenciesComponent implements OnInit {
   @Input() cryptocurrencies: Cryptocurrency[];
